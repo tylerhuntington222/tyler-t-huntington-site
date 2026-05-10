@@ -142,7 +142,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h1 className="text-5xl md:text-7xl font-serif text-foreground leading-tight tracking-tight mb-8">
-                Software built to soar, from concept to launch.
+                Your software, your way. From concept to launch.
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed mb-12 font-light">
                 Starling designs and builds data-driven software for teams whose workflows, research, and ideas don't fit inside off-the-shelf tools.
