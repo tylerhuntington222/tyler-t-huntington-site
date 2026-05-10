@@ -145,7 +145,7 @@ export default function Home() {
                 Your software, your way.<br />From concept to launch.
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed mb-12 font-light">
-                Starling designs and builds data-driven software for teams whose workflows, research, and ideas don't fit inside off-the-shelf tools.
+                Starling delivers custom software for teams whose data, workflows, and tooling needs exceed what off-the-shelf tools can offer.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button onClick={() => scrollToSection('contact')} size="lg" className="rounded-none text-base h-14 px-8" data-testid="button-hero-contact">
