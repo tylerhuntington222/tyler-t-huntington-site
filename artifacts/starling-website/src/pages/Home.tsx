@@ -76,14 +76,14 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border" data-testid="header-main">
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center cursor-pointer" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} data-testid="link-home">
-            <div style={{ height: '52px', width: '230px', overflow: 'hidden', position: 'relative', flexShrink: 0 }} data-testid="img-logo">
+            <div style={{ height: '36px', width: '290px', overflow: 'hidden', position: 'relative', flexShrink: 0 }} data-testid="img-logo">
               <img
                 src={logoImg}
                 alt="Starling Custom Software"
                 style={{
                   mixBlendMode: 'multiply',
                   position: 'absolute',
-                  height: '280%',
+                  height: '200%',
                   width: 'auto',
                   top: '50%',
                   left: '50%',
