@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import logoImg from "@assets/ChatGPT_Image_May_10,_2026,_11_01_34_AM_1778437381929.png";
+import { Menu, X } from "lucide-react";
+import logoImg from "@assets/ChatGPT_Image_May_10,_2026,_11_24_58_AM_1778438025530.png";
 
 import {
   Form,
@@ -29,6 +30,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -46,6 +48,7 @@ export default function Home() {
   }
 
   const scrollToSection = (id: string) => {
+    setMobileMenuOpen(false);
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
@@ -72,19 +75,17 @@ export default function Home() {
       {/* Header */}
       <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border" data-testid="header-main">
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} data-testid="link-home">
-            {/* Bird mark SVG */}
-            <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M18 72 C28 58, 44 42, 72 22 C60 36, 54 48, 58 58 C48 50, 36 54, 18 72Z" fill="#0f2336" />
-              <path d="M72 22 C80 16, 88 18, 84 28 C78 26, 74 28, 72 22Z" fill="#2e8b7a" />
-              <path d="M58 58 C62 68, 56 78, 46 82 C48 72, 54 64, 58 58Z" fill="#0f2336" />
-            </svg>
-            <div className="flex flex-col leading-none">
-              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-foreground" style={{ fontFamily: 'DM Sans, sans-serif', letterSpacing: '0.18em' }}>STARLING</span>
-              <span className="text-[10px] tracking-[0.22em] uppercase text-muted-foreground" style={{ fontFamily: 'DM Sans, sans-serif', letterSpacing: '0.22em' }}>CUSTOM SOFTWARE</span>
-            </div>
+          <div className="flex items-center cursor-pointer" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} data-testid="link-home">
+            <img
+              src={logoImg}
+              alt="Starling Custom Software"
+              className="h-10 w-auto"
+              style={{ mixBlendMode: 'multiply' }}
+              data-testid="img-logo"
+            />
           </div>
-          
+
+          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8" data-testid="nav-main">
             <button onClick={() => scrollToSection('projects')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-work">Work</button>
             <button onClick={() => scrollToSection('services')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-services">Services</button>
@@ -93,7 +94,42 @@ export default function Home() {
             <button onClick={() => scrollToSection('contact')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="link-contact">Contact</button>
             <Button onClick={() => scrollToSection('contact')} variant="default" className="rounded-none font-medium ml-2" data-testid="button-nav-cta">Start a conversation</Button>
           </nav>
+
+          {/* Mobile hamburger button */}
+          <button
+            className="md:hidden flex items-center justify-center w-10 h-10 text-foreground"
+            onClick={() => setMobileMenuOpen(o => !o)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            data-testid="button-mobile-menu"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
+
+        {/* Mobile slide-down menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="md:hidden overflow-hidden border-t border-border bg-background/95 backdrop-blur-md"
+              data-testid="mobile-menu"
+            >
+              <nav className="flex flex-col px-6 py-6 gap-1">
+                <button onClick={() => scrollToSection('projects')} className="text-left py-3 text-base font-medium text-muted-foreground hover:text-foreground border-b border-border/50 transition-colors" data-testid="mobile-link-work">Work</button>
+                <button onClick={() => scrollToSection('services')} className="text-left py-3 text-base font-medium text-muted-foreground hover:text-foreground border-b border-border/50 transition-colors" data-testid="mobile-link-services">Services</button>
+                <button onClick={() => scrollToSection('approach')} className="text-left py-3 text-base font-medium text-muted-foreground hover:text-foreground border-b border-border/50 transition-colors" data-testid="mobile-link-approach">Approach</button>
+                <button onClick={() => scrollToSection('about')} className="text-left py-3 text-base font-medium text-muted-foreground hover:text-foreground border-b border-border/50 transition-colors" data-testid="mobile-link-about">About</button>
+                <button onClick={() => scrollToSection('contact')} className="text-left py-3 text-base font-medium text-muted-foreground hover:text-foreground border-b border-border/50 transition-colors" data-testid="mobile-link-contact">Contact</button>
+                <div className="pt-4">
+                  <Button onClick={() => scrollToSection('contact')} variant="default" className="w-full rounded-none font-medium" data-testid="mobile-button-cta">Start a conversation</Button>
+                </div>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       <main>
