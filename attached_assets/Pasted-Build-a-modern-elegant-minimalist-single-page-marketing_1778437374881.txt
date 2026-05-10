@@ -1,0 +1,252 @@
+Build a modern, elegant, minimalist single-page marketing website for **Starling Custom Software**, a boutique custom software development firm. I will provide the logo files; use them as the visual reference for the site’s aesthetic.
+
+The site should feel calm, precise, premium, technical, and human. It should look like a thoughtful boutique software engineering studio, not a generic SaaS startup, IT services company, or template-based dev shop.
+
+Core positioning:
+
+**Most software firms start from templates. Starling starts from the problem.**
+
+Starling designs and builds truly custom, data-driven software for teams whose workflows, data, research, and ideas do not fit neatly into off-the-shelf tools. The site should emphasize that Starling does not sell generic websites, cookie-cutter dashboards, or recycled app templates. We build from the ground up around each client’s actual needs.
+
+Primary audience:
+
+* Research groups
+* Technical teams
+* Data-driven organizations
+* Scientific teams
+* Labs, universities, nonprofits, startups, and small organizations with specialized workflows
+
+Core services:
+
+* Custom web applications
+* Data-driven software
+* Research and scientific software
+* Dashboards and decision tools
+* Internal tools
+* Workflow automation
+* Prototype-to-production development
+* Software modernization
+
+Tone and copy style:
+Use plain, warm, human language. Avoid enterprise jargon and overused phrases like “synergy,” “leverage,” “transformative digital solutions,” “world-class,” “disruptive,” “end-to-end solutions,” and “seamless innovation.” The writing should sound like a smart, careful engineer explaining the work clearly. Confident, but not salesy. Polished, but approachable.
+
+Visual direction:
+Use the attached logo aesthetic as the design foundation:
+
+* Clean white space
+* Refined typography
+* Deep navy, charcoal, off-white
+* Muted teal, slate blue, or soft steel blue accents
+* Elegant spacing
+* Thin dividers
+* Subtle borders
+* Minimal cards
+* Calm, balanced layouts
+* Sparse use of the bird mark as a brand accent
+
+Avoid:
+
+* Loud gradients
+* Stock photos
+* Generic tech illustrations
+* Excessive animations
+* Busy backgrounds
+* Dense text blocks
+* Overly playful visuals
+* Generic icon overload
+
+The site should be responsive for desktop, tablet, and mobile. Use strong vertical rhythm, large elegant hero typography, accessible contrast, subtle hover states, and light scroll animations if appropriate.
+
+Site structure:
+
+1. Header
+
+Create a simple top navigation with the Starling logo or wordmark on the left and these links on the right:
+
+* Work
+* Services
+* Approach
+* About
+* Contact
+
+Include a primary CTA button:
+**Start a conversation**
+
+Keep the header airy, minimal, and refined.
+
+2. Hero
+
+Headline:
+**Custom software, built from the ground up.**
+
+Subheadline:
+**Starling designs and builds data-driven software for teams whose workflows, research, and ideas don’t fit inside off-the-shelf tools.**
+
+CTA buttons:
+
+* **Start a conversation**
+* **See what we build**
+
+The hero should immediately communicate that Starling builds custom software, specializes in data-driven and technical work, and is thoughtful and easy to work with. Use the bird mark or a subtle abstract visual inspired by flight, motion, data flow, or connected systems. Keep it elegant and minimal.
+
+3. Positioning section
+
+Headline:
+**Not every problem needs another template.**
+
+Copy:
+**Many software projects start with a prebuilt framework, a recycled dashboard, or a one-size-fits-all workflow. That can be fine for simple needs. But technical teams often have messy data, specialized processes, and domain-specific requirements. Starling starts there — with the real problem — and builds software around it.**
+
+Use three concise cards:
+
+**Built around your workflow**
+Software should adapt to how your team actually works, not the other way around.
+
+**Designed for your data**
+From databases and APIs to analysis pipelines and dashboards, we build tools that make complex data usable.
+
+**Made to last**
+Clean architecture, readable code, and thoughtful handoff so your software can keep evolving.
+
+4. Services
+
+Headline:
+**What we build**
+
+Use clean cards or a two-column layout.
+
+Services copy:
+
+**Custom web applications**
+Purpose-built apps for internal teams, external users, research groups, and technical workflows.
+
+**Data dashboards and decision tools**
+Interfaces that turn complex datasets into clear, useful outputs.
+
+**Workflow automation**
+Software that reduces manual work, connects systems, and helps teams move faster.
+
+**Research and scientific software**
+Tools for modeling, analysis, visualization, experiment workflows, and technical collaboration.
+
+**Prototype-to-production development**
+Turn a script, notebook, prototype, or early idea into reliable software.
+
+**Software modernization**
+Improve fragile tools, legacy workflows, and scattered scripts without losing the domain knowledge behind them.
+
+5. Approach
+
+Headline:
+**A careful process for custom work**
+
+Use a 4-step process:
+
+**1. Understand the problem**
+We learn your workflow, users, data, constraints, and goals.
+
+**2. Shape the right solution**
+We define the scope, architecture, and technical path before rushing into code.
+
+**3. Build with clarity**
+We develop clean, maintainable software with frequent check-ins and visible progress.
+
+**4. Hand off and support**
+We document the system, prepare your team to use it, and support the next stage when needed.
+
+Include this line:
+**Custom does not mean chaotic. The goal is to bring structure to ambiguous technical problems.**
+
+6. Why Starling
+
+Headline:
+**Why Starling**
+
+Core copy:
+**Starling sits between technical consulting and hands-on software development. We do not just advise from the sidelines, and we do not just execute tickets. We help define what should be built, then build it carefully.**
+
+Use three differentiators:
+
+**Ground-up thinking**
+We do not force your project into a template. We design around your actual needs.
+
+**Data-driven expertise**
+We are especially strong where software meets data, analysis, research, and technical decision-making.
+
+**Human collaboration**
+Clear communication, plain language, and a working style that respects your team’s expertise.
+
+7. Ideal clients
+
+Headline:
+**Built for teams with specialized software needs**
+
+Copy:
+**Starling is a good fit for teams that have outgrown spreadsheets, scripts, generic dashboards, or manual workflows — but do not need or want a large software vendor.**
+
+Checklist:
+
+* Your workflow is too specific for off-the-shelf software
+* Your data is valuable but hard to use
+* Your team relies on fragile scripts, spreadsheets, or manual steps
+* You need a custom tool but do not have an internal software team
+* You want a thoughtful technical partner, not a generic dev shop
+
+8. Example project types
+
+Headline:
+**The kinds of problems we help solve**
+
+Do not fabricate real case studies. Use representative project cards:
+
+**Research data platform**
+A custom interface for organizing, querying, and visualizing scientific datasets.
+
+**Internal operations tool**
+A lightweight application to replace spreadsheets, manual tracking, and repeated coordination work.
+
+**Analytical dashboard**
+A decision-support tool that connects live data sources with clear visual outputs.
+
+**Prototype to product**
+A rough technical proof of concept turned into a stable, usable application.
+
+9. About
+
+Headline:
+**Small by design. Technical by nature.**
+
+Copy:
+**Starling Custom Software is an independent software studio focused on building thoughtful, data-driven tools for technical teams. We bring a research-minded approach to software development: understand the system, clarify the problem, and build only what is useful.**
+
+Optional founder line:
+**Founded by a software developer with experience building custom tools in research and technical environments, Starling is designed for clients who need both engineering judgment and hands-on implementation.**
+
+10. Contact CTA
+
+Headline:
+**Have a software problem that doesn’t fit a template?**
+
+Copy:
+**Let’s talk through what you’re trying to build, where your current tools are falling short, and whether a custom software approach makes sense.**
+
+CTA:
+**Start a conversation**
+
+Contact form fields:
+
+* Name
+* Email
+* Organization
+* What are you trying to build?
+* Budget/timeline, optional
+
+SEO:
+Page title:
+**Starling Custom Software | Custom Software for Technical Teams**
+
+Meta description:
+**Starling Custom Software designs and builds custom, data-driven software for research, technical, and data-heavy teams. Built from the ground up around your workflow.**
+
+Final design goal:
+The finished site should feel minimalist, premium, warm, technical, and trustworthy. It should make Starling feel like a small, highly capable software partner that builds thoughtful software from first principles — not a template-based development shop.
