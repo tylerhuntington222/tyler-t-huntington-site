@@ -150,7 +150,9 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h1 className="text-5xl md:text-7xl font-serif text-foreground leading-tight tracking-tight mb-8">
-                Software built for you, that actually solves your problems.
+                Software built for you.
+                <br />
+                Tailored to your needs.
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed mb-12 font-light">
                 Starling delivers custom solutions when off-the-shelf tools just don't cut it.
