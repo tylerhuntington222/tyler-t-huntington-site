@@ -155,7 +155,7 @@ export default function Home() {
                 Tailored to your needs.
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed mb-12 font-light">
-                Starling delivers custom solutions when off-the-shelf tools just don't cut it.
+                Starling delivers custom solutions when off-the-shelf tools fall short.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button onClick={() => scrollToSection('contact')} size="lg" className="rounded-none text-base h-14 px-8" data-testid="button-hero-contact">
