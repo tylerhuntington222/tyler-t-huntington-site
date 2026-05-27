@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "Tyler Huntington"
+title = "Tyler T. Huntington"
 version = "1.0.0"
 id = "artifacts/starling-website"
 router = "path"

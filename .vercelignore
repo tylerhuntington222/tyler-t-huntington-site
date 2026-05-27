@@ -1,0 +1,10 @@
+.pnpm-store
+node_modules
+.git
+.cache
+.local
+.expo
+.expo-shared
+dist
+tmp
+coverage

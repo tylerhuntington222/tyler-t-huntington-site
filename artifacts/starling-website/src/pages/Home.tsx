@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,20 +16,30 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import {
+  publications,
+  publicationTypeLabel,
+  SCHOLAR_PROFILE_URL,
+  splitAuthorsWithHighlight,
+  getPublicationUrl,
+} from "@/data/publications";
 
 const contactFormSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  organization: z.string().min(1, "Organization is required"),
-  projectDetails: z.string().min(10, "Please provide some details about what you're trying to build"),
+  name: z.string().min(1, "Please enter your name"),
+  email: z.string().email("Please enter a valid email address"),
+  organization: z.string().min(1, "Please enter your organization"),
+  projectDetails: z.string().min(10, "Please share a few details about what you're trying to build"),
   budget: z.string().optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
+const HEADSHOT_SRC = `${import.meta.env.BASE_URL}tyler-huntington-headshot.png`;
+
 const navLinks = [
   { id: "projects", label: "Work" },
   { id: "services", label: "Services" },
+  { id: "publications", label: "Publications" },
   { id: "approach", label: "Approach" },
   { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
@@ -67,7 +77,7 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -75,9 +85,13 @@ export default function Home() {
     },
   };
 
-  const staggerItem = {
+  const staggerItem: Variants = {
     hidden: { opacity: 0, y: 16 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" as const },
+    },
   };
 
   return (
@@ -90,14 +104,23 @@ export default function Home() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="group text-left"
+            className="group flex items-center gap-3 text-left min-w-0"
             data-testid="link-home"
           >
-            <span className="block text-[15px] font-medium tracking-tight text-foreground group-hover:text-foreground/80 transition-colors">
-              Tyler Huntington
-            </span>
-            <span className="block text-[11px] text-muted-foreground tracking-wide">
-              Independent contractor
+            <img
+              src={HEADSHOT_SRC}
+              alt=""
+              aria-hidden
+              className="size-9 shrink-0 rounded-full object-cover object-[center_15%] border border-border/70"
+              data-testid="img-nav-headshot"
+            />
+            <span className="min-w-0">
+              <span className="block text-[15px] font-medium tracking-tight text-foreground group-hover:text-foreground/80 transition-colors truncate">
+                Tyler T. Huntington
+              </span>
+              <span className="block text-[11px] text-muted-foreground tracking-wide truncate">
+                Scientific Software Contractor
+              </span>
             </span>
           </button>
 
@@ -180,13 +203,17 @@ export default function Home() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="max-w-3xl"
             >
-              <p className="eyebrow mb-6">Independent software contractor</p>
-              <h1 className="font-display text-[2.75rem] md:text-[4.25rem] leading-[1.05] tracking-tight text-foreground mb-7">
-                Software built around your problem.
+              <p className="eyebrow mb-6">Scientific Software Contractor</p>
+              <h1 className="font-serif text-[2.75rem] md:text-[4.25rem] leading-[1.05] tracking-tight text-foreground mb-7">
+                Production-grade software,
+                <br />
+                built around your science.
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-                I design and build custom, data-driven software for teams whose workflows,
-                research, and ideas do not fit neatly into off-the-shelf tools.
+                I help research teams turn Jupyter notebooks, scripts, and one-off
+                prototypes into stable web applications — geospatial tools, modeling
+                interfaces, and decision dashboards that keep working after the original
+                project wraps up.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
@@ -219,14 +246,16 @@ export default function Home() {
             <div className="grid md:grid-cols-12 gap-12 md:gap-20">
               <div className="md:col-span-5">
                 <p className="eyebrow mb-4">Philosophy</p>
-                <h2 className="font-display text-3xl md:text-4xl leading-tight mb-5">
-                  Not every problem needs another template.
+                <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-5">
+                  Research code is not the same as research software.
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Many projects start with a prebuilt framework, a recycled dashboard, or a
-                  one-size-fits-all workflow. That can work for simple needs. But technical teams
-                  often have messy data, specialized processes, and domain-specific requirements. I
-                  start there — with the real problem — and build software around it.
+                  Most scientific work starts in notebooks, one-off scripts, and pipelines
+                  that only a couple of people can run. That's the right approach for
+                  exploration. But the moment a method needs to be shared with
+                  collaborators, maintained over time, or used outside the lab, it needs
+                  real software engineering. My job is to bridge that gap: understand the
+                  science first, then build durable software around it.
                 </p>
               </div>
               <motion.div
@@ -238,18 +267,18 @@ export default function Home() {
               >
                 {[
                   {
-                    title: "Built around your workflow",
-                    desc: "Software should adapt to how your team actually works, not the other way around.",
+                    title: "From notebook to deployed tool",
+                    desc: "Turn Jupyter notebooks, R scripts, and research prototypes into stable web apps that collaborators and stakeholders can actually run.",
                     accent: true,
                   },
                   {
-                    title: "Designed for your data",
-                    desc: "From databases and APIs to analysis pipelines and dashboards, I build tools that make complex data usable.",
+                    title: "Built for scientific data",
+                    desc: "Geospatial layers, model outputs, lab datasets, and simulation results, packaged into interfaces that make complex science legible and reproducible.",
                     accent: false,
                   },
                   {
-                    title: "Made to last",
-                    desc: "Clean architecture, readable code, and thoughtful handoff so your software can keep evolving.",
+                    title: "Made to outlive the grant cycle",
+                    desc: "Clean architecture, documented assumptions, and maintainable code, so the tool keeps running long after the original team has moved on.",
                     accent: false,
                   },
                 ].map((item) => (
@@ -275,10 +304,10 @@ export default function Home() {
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-14">
               <p className="eyebrow mb-4">Services</p>
-              <h2 className="font-display text-3xl md:text-4xl mb-4">What I build</h2>
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">What I build</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Custom software for research, technical, and data-heavy teams — from early prototypes
-                to production-ready tools.
+                Science-focused software for research groups, labs, and technical programs —
+                from internal prototypes to public-facing web tools.
               </p>
             </div>
             <motion.div
@@ -290,28 +319,28 @@ export default function Home() {
             >
               {[
                 {
-                  title: "Custom web applications",
-                  desc: "Purpose-built apps for internal teams, external users, research groups, and technical workflows.",
+                  title: "From research code to deployed web app",
+                  desc: "Migrate Jupyter notebooks, R scripts, and Python codebases into production web applications with proper APIs, authentication, tests, and a codebase your team can maintain after I hand it off.",
                 },
                 {
-                  title: "Data dashboards and decision tools",
-                  desc: "Interfaces that turn complex datasets into clear, useful outputs.",
+                  title: "Geospatial research platforms",
+                  desc: "Interactive web maps and spatial analysis tools for resource mapping, site selection, and exploring region-scale scientific datasets.",
                 },
                 {
-                  title: "Workflow automation",
-                  desc: "Software that reduces manual work, connects systems, and helps teams move faster.",
+                  title: "Scientific dashboards and decision tools",
+                  desc: "Web interfaces that let stakeholders explore model outputs, technoeconomic results, and life-cycle assessments visually, without needing to read the underlying code.",
                 },
                 {
-                  title: "Research and scientific software",
-                  desc: "Tools for modeling, analysis, visualization, experiment workflows, and technical collaboration.",
+                  title: "Machine learning for science",
+                  desc: "Surrogate models, predictive pipelines, and ML workflows wrapped in software that researchers and analysts can run reliably, not just the developer who built them.",
                 },
                 {
-                  title: "Prototype-to-production development",
-                  desc: "Turn a script, notebook, prototype, or early idea into reliable software.",
+                  title: "Data pipeline engineering",
+                  desc: "Modular, reproducible pipelines for cleaning, transforming, and aggregating the messy, multi-source data that comes with real research.",
                 },
                 {
-                  title: "Software modernization",
-                  desc: "Improve fragile tools, legacy workflows, and scattered scripts without losing the domain knowledge behind them.",
+                  title: "Legacy tool modernization",
+                  desc: "Refactor fragile scripts and aging internal tools without losing the domain knowledge and scientific logic that made them valuable in the first place.",
                 },
               ].map((service, i) => (
                 <motion.div
@@ -321,7 +350,7 @@ export default function Home() {
                   data-testid={`card-service-${i}`}
                 >
                   <div className="h-px w-8 bg-secondary/60 mb-5 transition-all duration-500 group-hover:w-16" />
-                  <h3 className="font-display text-xl mb-2">{service.title}</h3>
+                  <h3 className="font-serif text-xl mb-2">{service.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
                 </motion.div>
               ))}
@@ -333,12 +362,13 @@ export default function Home() {
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-16">
               <p className="eyebrow mb-4">Process</p>
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                A careful process for custom work
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">
+                A process built for research software
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Custom does not mean chaotic. The goal is to bring structure to ambiguous technical
-                problems.
+                Research projects need structure that supports discovery rather than slowing
+                it down. I work closely with scientists to translate methods into software
+                that holds up in production.
               </p>
             </div>
 
@@ -346,23 +376,23 @@ export default function Home() {
               {[
                 {
                   num: "01",
-                  title: "Understand the problem",
-                  desc: "I learn your workflow, users, data, constraints, and goals.",
+                  title: "Understand the science",
+                  desc: "I learn the research question, the data sources, the model assumptions, and who actually needs to use the tool day-to-day.",
                 },
                 {
                   num: "02",
-                  title: "Shape the right solution",
-                  desc: "I define the scope, architecture, and technical path before rushing into code.",
+                  title: "Define the software path",
+                  desc: "I map the notebook or prototype to a real web architecture — scope, APIs, data flow, and deployment — before any production code gets written.",
                 },
                 {
                   num: "03",
-                  title: "Build with clarity",
-                  desc: "I develop clean, maintainable software with frequent check-ins and visible progress.",
+                  title: "Build and validate",
+                  desc: "I develop the application with frequent check-ins, validating outputs against the original research at each step so the science stays intact.",
                 },
                 {
                   num: "04",
-                  title: "Hand off and support",
-                  desc: "I document the system, prepare your team to use it, and support the next stage when needed.",
+                  title: "Deploy and document",
+                  desc: "I ship the tool, document methodology and assumptions, and support handoff so your team can maintain and extend it after I move on.",
                 },
               ].map((step, i) => (
                 <div key={step.num} className="relative" data-testid={`card-approach-${i}`}>
@@ -379,26 +409,26 @@ export default function Home() {
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20">
             <div>
               <p className="eyebrow mb-4">Working together</p>
-              <h2 className="font-display text-3xl md:text-4xl mb-5">Why work with me</h2>
+              <h2 className="font-serif text-3xl md:text-4xl mb-5">Why work with me</h2>
               <p className="text-muted-foreground leading-relaxed">
-                I sit between technical consulting and hands-on software development. I do not just
-                advise from the sidelines, and I do not just execute tickets. I help define what
-                should be built, then build it carefully.
+                I've spent years building scientific software and co-authoring research across
+                sustainable energy, bioeconomy analysis, and machine learning, shipping publicly
+                deployed tools side-by-side with scientists and domain experts.
               </p>
             </div>
             <div className="space-y-8">
               {[
                 {
-                  title: "Ground-up thinking",
-                  desc: "I do not force your project into a template. I design around your actual needs.",
+                  title: "Published research background",
+                  desc: "Co-author on peer-reviewed articles, conference papers, and registered scientific software in technoeconomic analysis, geospatial modeling, and ML for bioproduction. I understand how research is evaluated, not just how it's coded.",
                 },
                 {
-                  title: "Data-driven expertise",
-                  desc: "Especially strong where software meets data, analysis, research, and technical decision-making.",
+                  title: "Research-to-production fluency",
+                  desc: "Years of turning notebooks, geospatial models, technoeconomic analyses, and ML pipelines into web-deployed applications that get used well beyond the original research team.",
                 },
                 {
-                  title: "Human collaboration",
-                  desc: "Clear communication, plain language, and a working style that respects your team's expertise.",
+                  title: "Comfortable working with scientists",
+                  desc: "Clear communication across research and engineering. I respect domain expertise, ask the right questions, and make pragmatic software decisions in service of the science.",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4">
@@ -417,22 +447,23 @@ export default function Home() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <p className="eyebrow mb-4">Fit</p>
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                Built for teams with specialized software needs
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">
+                Built for research teams with software gaps
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                A good fit if your team has outgrown spreadsheets, scripts, generic dashboards, or
-                manual workflows — but does not need or want a large software vendor.
+                We're a good fit if your science is solid but the tooling hasn't caught up — a
+                common situation for labs, research groups, and technical programs that need
+                custom software without a full in-house dev team.
               </p>
             </div>
 
             <div className="space-y-3">
               {[
-                "Your workflow is too specific for off-the-shelf software",
-                "Your data is valuable but hard to use",
-                "Your team relies on fragile scripts, spreadsheets, or manual steps",
-                "You need a custom tool but do not have an internal software team",
-                "You want a thoughtful technical partner, not a generic dev shop",
+                "Your method works in a notebook, but you need it running as a web application your collaborators or the public can use",
+                "You have geospatial, modeling, or simulation outputs that stakeholders can't explore on their own",
+                "Your team relies on scripts, spreadsheets, or manual steps to run analyses that should be a single click",
+                "You need technoeconomic, life-cycle, or ML workflows packaged so non-developers can run them",
+                "You'd rather work with a contractor who actually understands research environments than a generic dev shop",
               ].map((item, i) => (
                 <div
                   key={item}
@@ -466,27 +497,31 @@ export default function Home() {
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-14">
               <p className="eyebrow mb-4">Work</p>
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                The kinds of problems I help solve
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">
+                Selected scientific software
               </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                A handful of web tools and platforms I've built for geospatial analysis,
+                technoeconomic and life-cycle assessment, and research machine learning.
+              </p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid sm:grid-cols-2 gap-5">
               {[
                 {
-                  title: "Research data platform",
-                  desc: "A custom interface for organizing, querying, and visualizing scientific datasets.",
+                  title: "BioSiting Tool",
+                  desc: "Geospatial web platform for mapping bioeconomy resources and infrastructure across the United States — agricultural residues, waste streams, biorefineries, pipelines, and environmental data layers. Used to analyze resource availability by region and within custom buffer zones.",
                 },
                 {
-                  title: "Internal operations tool",
-                  desc: "A lightweight application to replace spreadsheets, manual tracking, and repeated coordination work.",
+                  title: "BioC2G Tool",
+                  desc: "Web interface for technoeconomic analysis and life-cycle assessment of biofuel and bioproduct production pathways. Calculates minimum selling price, water consumption, and greenhouse gas emissions, with downloadable model outputs.",
                 },
                 {
-                  title: "Analytical dashboard",
-                  desc: "A decision-support tool that connects live data sources with clear visual outputs.",
+                  title: "California BioSiting and Cal Bioscape",
+                  desc: "State-scale extensions of my biositing work — interactive geospatial tools for mapping biomass resources and bioeconomy infrastructure, built around California research and policy questions.",
                 },
                 {
-                  title: "Prototype to product",
-                  desc: "A rough technical proof of concept turned into a stable, usable application.",
+                  title: "Research ML and analysis pipelines",
+                  desc: "Machine learning workflows for biogas prediction, biomass yield forecasting, surrogate process models, and molecular descriptor selection — moved from research code into reproducible, deployable software.",
                 },
               ].map((proj, i) => (
                 <div
@@ -494,7 +529,7 @@ export default function Home() {
                   className="rounded-xl border border-border/70 bg-background p-6 hover:border-secondary/40 transition-colors"
                   data-testid={`card-project-${i}`}
                 >
-                  <h3 className="font-display text-lg mb-3">{proj.title}</h3>
+                  <h3 className="font-serif text-lg mb-3">{proj.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{proj.desc}</p>
                 </div>
               ))}
@@ -502,22 +537,125 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="py-24 md:py-28 px-6" data-testid="section-about">
+        <section id="publications" className="py-24 md:py-28 px-6" data-testid="section-publications">
+          <div className="max-w-5xl mx-auto">
+            <div className="max-w-2xl mb-14">
+              <p className="eyebrow mb-4">Publications</p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">Published work</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Peer-reviewed articles, conference papers, and registered scientific software
+                I've co-authored across bioenergy, geospatial analysis, machine learning, and
+                sustainable systems research.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {publications.map((pub, i) => {
+                const publicationUrl = getPublicationUrl(pub);
+                const content = (
+                  <>
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <span className="font-mono text-xs text-secondary">{pub.year}</span>
+                      <span className="text-xs text-muted-foreground">·</span>
+                      <span className="text-xs text-muted-foreground uppercase tracking-wide">
+                        {publicationTypeLabel[pub.type]}
+                      </span>
+                      {publicationUrl && (
+                        <>
+                          <span className="text-xs text-muted-foreground">·</span>
+                          <span className="text-xs text-secondary">
+                            {pub.doi ? `DOI: ${pub.doi}` : "View source"}
+                          </span>
+                        </>
+                      )}
+                    </div>
+                    <h3 className="font-serif text-lg leading-snug mb-2 group-hover:text-secondary transition-colors">
+                      {pub.title}
+                      {publicationUrl && (
+                        <ArrowUpRight className="inline-block ml-1.5 size-3.5 opacity-60 align-middle" />
+                      )}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {splitAuthorsWithHighlight(pub.authors).map((part, j) =>
+                        part.isSelf ? (
+                          <strong key={j} className="font-semibold text-foreground">
+                            {part.text}
+                          </strong>
+                        ) : (
+                          <span key={j}>{part.text}</span>
+                        ),
+                      )}
+                    </p>
+                    <p className="text-sm text-muted-foreground/80 mt-1 italic">{pub.venue}</p>
+                  </>
+                );
+
+                return publicationUrl ? (
+                  <a
+                    key={`${pub.year}-${pub.title}`}
+                    href={publicationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block rounded-xl border border-border/70 bg-card/40 px-5 py-5 md:px-6 hover:border-secondary/40 hover:bg-card/60 transition-colors"
+                    data-testid={`publication-${i}`}
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <article
+                    key={`${pub.year}-${pub.title}`}
+                    className="rounded-xl border border-border/70 bg-card/40 px-5 py-5 md:px-6 hover:border-border transition-colors"
+                    data-testid={`publication-${i}`}
+                  >
+                    {content}
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className="mt-10 text-center">
+              <Button variant="outline" asChild className="font-medium">
+                <a
+                  href={SCHOLAR_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="link-google-scholar"
+                >
+                  View full profile on Google Scholar
+                  <ArrowUpRight className="ml-1.5 size-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="py-24 md:py-28 px-6 bg-muted/30" data-testid="section-about">
           <div className="max-w-2xl mx-auto text-center">
+            <div className="mb-8 flex justify-center">
+              <img
+                src={HEADSHOT_SRC}
+                alt="Tyler T. Huntington"
+                className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover object-[center_15%] border border-border/70 shadow-sm"
+                data-testid="img-headshot"
+              />
+            </div>
             <p className="eyebrow mb-4">About</p>
-            <h2 className="font-display text-3xl md:text-4xl mb-6">
-              Independent by design. Technical by nature.
+            <h2 className="font-serif text-3xl md:text-4xl mb-6">
+              Scientific software, from the lab outward.
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              I am Tyler Huntington, an independent software contractor focused on building
-              thoughtful, data-driven tools for technical teams. I bring a research-minded approach
-              to software development: understand the system, clarify the problem, and build only
-              what is useful.
+              I'm Tyler T. Huntington, an independent scientific software contractor with years of
+              experience building publicly deployed web tools for geospatial analysis,
+              technoeconomic and life-cycle assessment, and machine learning. My focus is turning
+              research methods into software that scientists, analysts, and policymakers can
+              actually use.
             </p>
             <div className="hairline mb-8" />
-            <p className="text-muted-foreground italic font-display text-lg leading-relaxed">
-              With experience building custom tools in research and technical environments, I work
-              with clients who need both engineering judgment and hands-on implementation.
+            <p className="text-muted-foreground italic font-serif text-lg leading-relaxed">
+              My work spans sustainable energy, biofuels, bioproduct supply chains, and synthetic
+              biology, all backed by a record of co-authored publications and registered
+              scientific software. The throughline is making rigorous science accessible
+              through well-engineered applications.
             </p>
           </div>
         </section>
@@ -526,12 +664,13 @@ export default function Home() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <p className="eyebrow mb-4">Contact</p>
-              <h2 className="font-display text-3xl md:text-4xl mb-4">
-                Have a software problem that does not fit a template?
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">
+                Have research that needs to become software?
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                Tell me what you are trying to build, where your current tools are falling short, and
-                whether a custom software approach makes sense.
+                Tell me about your project — the science, your current notebooks or scripts, and
+                what a deployed tool would need to do. I'll help you figure out whether a custom
+                build makes sense, and if so, what shape it should take.
               </p>
             </div>
 
@@ -542,10 +681,9 @@ export default function Home() {
                 className="rounded-xl border border-border/70 bg-background p-10 text-center"
                 data-testid="message-success"
               >
-                <h3 className="font-display text-2xl mb-3">Thank you.</h3>
+                <h3 className="font-serif text-2xl mb-3">Thank you.</h3>
                 <p className="text-muted-foreground text-sm">
-                  I have received your message and will be in touch shortly to continue the
-                  conversation.
+                  Your message is in. I'll be in touch shortly to keep the conversation going.
                 </p>
               </motion.div>
             ) : (
@@ -614,7 +752,7 @@ export default function Home() {
                     name="projectDetails"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>What are you trying to build?</FormLabel>
+                        <FormLabel>Tell me about your research or project</FormLabel>
                         <FormControl>
                           <Textarea
                             className="border-border/80 min-h-[120px] bg-background focus-visible:ring-secondary/30"
@@ -663,13 +801,13 @@ export default function Home() {
       <footer className="py-10 px-6 border-t border-border/60" data-testid="footer-main">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-center sm:text-left">
-            <p className="text-sm font-medium tracking-tight">Tyler Huntington</p>
+            <p className="text-sm font-medium tracking-tight">Tyler T. Huntington</p>
             <p className="text-xs text-muted-foreground mt-0.5">
-              Independent software contractor
+              Scientific Software Contractor
             </p>
           </div>
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Tyler Huntington
+            © {new Date().getFullYear()} Tyler T. Huntington
           </p>
         </div>
       </footer>
