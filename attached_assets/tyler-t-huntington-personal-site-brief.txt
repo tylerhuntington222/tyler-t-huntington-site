@@ -1,0 +1,62 @@
+Build a modern, elegant, minimalist single-page personal site for **Tyler T. Huntington**, an independent scientific software contractor.
+
+The site should feel calm, precise, premium, technical, and human — like a thoughtful research-minded engineer, not a generic SaaS startup or template-based dev shop.
+
+Core positioning:
+
+**Research code is not the same as research software.**
+
+Tyler helps research teams turn spreadsheets, scripts, and Jupyter notebooks into fully deployed web applications. He bridges the gap between scientific methods and durable, maintainable software.
+
+Primary audience:
+
+* Research groups and labs
+* Technical programs with specialized workflows
+* Teams with solid science but tooling that has not caught up
+
+Primary services:
+
+* Notebook and research code to deployed web apps
+* Geospatial research platforms
+* Scientific dashboards and decision tools
+* Machine learning for science
+* Data pipeline engineering
+* Legacy tool modernization
+
+Tone and copy style:
+
+* First person where appropriate (I / my)
+* Clear, confident, understated
+* Technical but accessible
+* No hype, no buzzwords, no agency-speak
+
+Visual identity:
+
+* Headshot in navigation and about section (not a corporate logo)
+* Warm paper-white base, ink-charcoal foreground, refined clay accent
+* Serif headlines (Cormorant Garamond), sans body (DM Sans)
+* Minimal, editorial layout with generous whitespace
+
+Navigation:
+
+* Work, Services, Publications, Approach, About, Contact
+* Primary CTA: Get in touch
+
+Key sections:
+
+1. Hero — scientific software that gives research the spotlight it deserves
+2. Philosophy — research code vs. research software
+3. Services — scientific software built to last
+4. Process — understand the science, define the path, build and validate, deploy and document
+5. Why work with me — published research background, research-to-production fluency
+6. Fit — built for research teams with software gaps
+7. Work — selected projects (Cal BioScape, Project PISCES, CEA SiteScout, LEAD TEA/LCA, Agile LCA, BioSiting, DSP Designer, Feedstock to Function)
+8. Publications — peer-reviewed work with Google Scholar link
+9. About — LBNL background, sustainable energy and bioeconomy focus
+10. Contact — mailto form; first conversations are free
+
+SEO:
+
+**Tyler T. Huntington | Scientific Software Contractor**
+
+Tyler T. Huntington is an independent scientific software contractor who turns research notebooks, scripts, and prototypes into deployed web applications. Published work in bioenergy, geospatial analysis, and machine learning.

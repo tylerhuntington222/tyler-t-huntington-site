@@ -4,7 +4,7 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 // import { useForm } from "react-hook-form";
 // import { z } from "zod";
 // import { zodResolver } from "@hookform/resolvers/zod";
-import { Menu, X, ArrowUpRight, Mail } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 // TODO: re-enable when wiring up the contact form
 // import {
@@ -31,14 +31,16 @@ import {
 //   name: z.string().min(1, "Please enter your name"),
 //   email: z.string().email("Please enter a valid email address"),
 //   organization: z.string().min(1, "Please enter your organization"),
-//   projectDetails: z.string().min(10, "Please share a few details about what you're trying to build"),
+//   projectDetails: z
+//     .string()
+//     .min(10, "Please share a few details about what you're trying to build"),
 //   budget: z.string().optional(),
 // });
 //
 // type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const HEADSHOT_SRC = `${import.meta.env.BASE_URL}tyler-huntington-headshot.png`;
-const CONTACT_EMAIL = "tylerthuntington.com@gmail.com";
+const CONTACT_EMAIL = "tylerthuntington@gmail.com";
 const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
   "Project inquiry",
 )}`;
@@ -69,7 +71,21 @@ export default function Home() {
   //   },
   // });
   //
-  // function onSubmit(_data: ContactFormValues) {
+  // function onSubmit(data: ContactFormValues) {
+  //   const subject = encodeURIComponent(`Project inquiry from ${data.name}`);
+  //   const body = encodeURIComponent(
+  //     [
+  //       `Name: ${data.name}`,
+  //       `Email: ${data.email}`,
+  //       `Organization: ${data.organization}`,
+  //       "",
+  //       "Project details:",
+  //       data.projectDetails,
+  //       data.budget ? `\nBudget / timeline: ${data.budget}` : "",
+  //     ].join("\n"),
+  //   );
+  //
+  //   window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   //   setIsSubmitted(true);
   // }
 
@@ -212,16 +228,15 @@ export default function Home() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="max-w-3xl"
             >
-              <p className="eyebrow mb-6">What I Do</p>
+              <p className="eyebrow mb-6">What I Build</p>
               <h1 className="font-serif text-[2.75rem] md:text-[4.25rem] leading-[1.05] tracking-tight text-foreground mb-7">
-                Production-grade software,
-                <br />
-                built around your science.
+                Software that elevates your science.
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-                I help research teams turn 
-                spreadsheets, scripts, and Jupyter notebooks
-                into fully-deployed web apps that will make your science shine. 
+                I help data-driven teams turn 
+                research into polished software solutions. From scripts, 
+                spreadsheets, and Jupyter notebooks to fully deployed 
+                web tools, I can help you get you there in weeks, not months.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
@@ -255,15 +270,16 @@ export default function Home() {
               <div className="md:col-span-5">
                 <p className="eyebrow mb-4">My Philosophy</p>
                 <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-5">
-                  Research code is not the same as research software.
+                  Your research code deserves the spotlight.
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Most scientific work starts in notebooks, one-off scripts, and pipelines
-                  that only a couple of people can run. That's the right approach for
-                  exploration. But the moment a method needs to be shared with
-                  collaborators, maintained over time, or used outside the lab, it needs
-                  real software engineering. My job is to bridge that gap: understand the
-                  science first, then build durable software around it.
+                  Most scientific analyses start in one-off scripts that 
+                  only your team can run locally. That's the right approach for
+                  exploration. 
+                  But the moment your model or workflow needs a wider audience, 
+                  real software engineering can help. 
+                  My job is to bridge that gap: understand your science,
+                  then build the tooling around it that is durable, scalable, and enjoyable to use.
                 </p>
               </div>
               <motion.div
@@ -275,29 +291,22 @@ export default function Home() {
               >
                 {[
                   {
-                    title: "From notebook to deployed tool",
+                    title: "From script to deployed tool",
                     desc: "Turn scripts, spreadsheets, Jupyter notebooks, and other research artifacts into web apps that collaborators and stakeholders can actually run.",
-                    accent: true,
                   },
                   {
                     title: "Built for scientific data",
-                    desc: "Geospatial layers, model outputs, lab datasets, and simulation results, packaged into interfaces that make complex science legible and reproducible.",
-                    accent: false,
+                    desc: "Geospatial data, model outputs, lab samples, and simulation results, packaged into interfaces that make complex science legible and reproducible.",
                   },
                   {
-                    title: "Made to outlive the grant cycle",
-                    desc: "Clean architecture, documented assumptions, and maintainable code, so the tool keeps running long after the original team has moved on.",
-                    accent: false,
+                    title: "Made for long-term sustainability",
+                    desc: "Clean architecture, documented assumptions, and maintainable code, so the software is built to last.",
                   },
                 ].map((item) => (
                   <motion.div
                     key={item.title}
                     variants={staggerItem}
-                    className={`rounded-xl border p-6 transition-colors ${
-                      item.accent
-                        ? "border-secondary/30 bg-accent/50"
-                        : "border-border/70 bg-card/50 hover:border-border"
-                    }`}
+                    className="rounded-xl border border-border/70 bg-card/50 p-6 transition-colors hover:border-secondary/30 hover:bg-accent/50"
                   >
                     <h3 className="text-base font-medium mb-2">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
@@ -313,11 +322,11 @@ export default function Home() {
             <div className="max-w-2xl mb-14">
               <p className="eyebrow mb-4">My Services</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                Scientific software built to last
+                Designed with purpose, built for impact.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                For research groups, labs, and technical programs — from internal
-                prototypes to public-facing web tools.
+                I believe science has the potential to solve our world's greatest challenges.<br/>
+                My mission is to build the tools that will pave the way.
               </p>
             </div>
             <motion.div
@@ -333,7 +342,7 @@ export default function Home() {
                   desc: "Migrate Jupyter notebooks, R scripts, and Python codebases into production web applications with proper APIs, authentication, tests, and a codebase your team can maintain after I hand it off.",
                 },
                 {
-                  title: "Geospatial research platforms",
+                  title: "Geospatial analysis platforms",
                   desc: "Interactive web maps and spatial analysis tools for resource mapping, site selection, and exploring region-scale scientific datasets.",
                 },
                 {
@@ -373,12 +382,12 @@ export default function Home() {
             <div className="max-w-2xl mb-16">
               <p className="eyebrow mb-4">My Process</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                A process built for research software
+                A process tailored around your science.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Research projects need structure that supports discovery rather than slowing
-                it down. I work closely with scientists to translate methods into software
-                that holds up in production.
+                Scientific software needs a balance of structure and flexibility to support new data and models over time.
+                I work closely with your team to translate your work into software
+                that holds up in production and can be maintained with ease.
               </p>
             </div>
 
@@ -386,23 +395,23 @@ export default function Home() {
               {[
                 {
                   num: "01",
-                  title: "Understand the science",
-                  desc: "I learn the research question, the data sources, the model assumptions, and who actually needs to use the tool day-to-day.",
+                  title: "Understand your science",
+                  desc: "I do a deep dive into your research, data, code to fully understand your software tooling needs.",
                 },
                 {
                   num: "02",
-                  title: "Define the software path",
-                  desc: "I map the notebook or prototype to a real web architecture — scope, APIs, data flow, and deployment — before any production code gets written.",
+                  title: "Define the software goal",
+                  desc: "I map your research artifacts to a prototype with scope, APIs, data flow, and a deployment plan, integrating your input along the way.",
                 },
                 {
                   num: "03",
                   title: "Build and validate",
-                  desc: "I develop the application with frequent check-ins, validating outputs against the original research at each step so the science stays intact.",
+                  desc: "I develop the application with frequent check-ins, opportunites for feedback and validation cycles.",
                 },
                 {
                   num: "04",
                   title: "Deploy and document",
-                  desc: "I ship the tool, document methodology and assumptions, and support handoff so your team can maintain and extend it after I move on.",
+                  desc: "I ship the tool, document methodology and assumptions, and support handoff so your team can maintain and extend it indefinitely.",
                 },
               ].map((step, i) => (
                 <div key={step.num} className="relative" data-testid={`card-approach-${i}`}>
@@ -421,9 +430,8 @@ export default function Home() {
               <p className="eyebrow mb-4">Working together</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-5">Why work with me</h2>
               <p className="text-muted-foreground leading-relaxed">
-                I've spent years building scientific software and co-authoring research across
-                sustainable energy, bioeconomy analysis, and machine learning, shipping publicly
-                deployed tools side-by-side with scientists and domain experts.
+                I've spent a decade at the intersection of science and software development, 
+                publishing research and tools across a range of fields from synthetic biology and sustainable agriculture to TEA/LCA, machine learning, and geospatial analysis.
               </p>
             </div>
             <div className="space-y-8">
@@ -437,7 +445,7 @@ export default function Home() {
                   desc: "Years of turning notebooks, geospatial models, technoeconomic analyses, and ML pipelines into web-deployed applications that get used well beyond the original research team.",
                 },
                 {
-                  title: "Comfortable working with scientists",
+                  title: "Experience working with domain experts",
                   desc: "Clear communication across research and engineering. I respect domain expertise, ask the right questions, and make pragmatic software decisions in service of the science.",
                 },
               ].map((item) => (
@@ -453,6 +461,79 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="projects" className="py-24 md:py-28 px-6 bg-muted/30" data-testid="section-project-types">
+          <div className="max-w-5xl mx-auto">
+            <div className="max-w-2xl mb-14">
+              <p className="eyebrow mb-4">My Work</p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">
+                Selected projects
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                A collection of web tools I've built over a decade in scientific research and software development.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-5">
+              {[
+                {
+                  title: "Project PISCES",
+                  href: "https://projectpisces.org",
+                  desc: "Process Integration & Synthesis using Chemical Engineering Standards — a JSON-based Standard Flowsheet Format and LLM pipeline that mines unit operations, streams, and operating conditions from peer-reviewed bioprocess literature into a FAIR, AI-ready knowledge base.",
+                },
+                {
+                  title: "Cal BioScape",
+                  href: "https://calbioscape.org",
+                  desc: "Geospatial mapping platform for California's circular bioeconomy — crop residues, biorefineries, anaerobic digesters, and processing infrastructure across the Northern San Joaquin Valley. Built with the University of Washington SSEC as part of the Schmidt Sciences BioCircular Valley initiative.",
+                },
+                {
+                  title: "CEA SiteScout",
+                  href: "https://www.ceasitescout.org",
+                  desc: "Geospatial decision support tool for siting controlled environment agriculture facilities. Layers climate, land use, water, utility, and co-location data and quantifies the benefits of selected energy and water efficiency measures for candidate sites.",
+                },
+                {
+                  title: "DSP Designer",
+                  href: "https://dspdesigner.lbl.gov",
+                  desc: "Automated recommendation tool for downstream bioprocess development. Selects unit operations and estimates costs for the separation and purification of bio-derived products from microbes and plants.",
+                },
+                {
+                  title: "Feedstock to Function",
+                  href: "https://feedstock-to-function.lbl.gov",
+                  desc: "Database and machine learning tool for predicting properties of biomass-derived molecules and fuel blends — boiling and flash points, melting points, yield sooting index, and heat of combustion — across 10,000+ candidate molecules for sustainable aviation fuel R&D, with linked techno-economic and life-cycle dashboards.",
+                },
+                {
+                  title: "LEAD TEA/LCA Tools",
+                  href: "https://lead.jbei.org",
+                  desc: "Public-facing portfolio for JBEI's Life-cycle, Economics, and Agronomy division — a unified landing page for the TEA and LCA web tools, datasets, and tutorials I help build alongside the LEAD team.",
+                },
+                {
+                  title: "Agile LCA",
+                  href: "https://agilelca.org",
+                  desc: "Streamlined life-cycle assessment tool for rapidly estimating greenhouse gas emissions of products from direct material and energy inputs, with an emissions breakdown dashboard and CSV export.",
+                },
+                {
+                  title: "BioSiting Tool",
+                  href: "https://biositing.jbei.org",
+                  desc: "National geospatial platform for analyzing bioeconomy resources and infrastructure across the U.S. — agricultural and forest residues, waste streams, biorefineries, pipelines, environmental justice indicators, and CO₂ geologic storage potential, with custom buffer-zone queries.",
+                },
+              ].map((proj, i) => (
+                <a
+                  key={proj.title}
+                  href={proj.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-xl border border-border/70 bg-background p-6 hover:border-secondary/40 hover:bg-card/40 transition-colors"
+                  data-testid={`card-project-${i}`}
+                >
+                  <h3 className="font-serif text-lg mb-3 group-hover:text-secondary transition-colors">
+                    {proj.title}
+                    <ArrowUpRight className="inline-block ml-1.5 size-4 opacity-60 align-middle" />
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{proj.desc}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="py-24 md:py-28 px-6" data-testid="section-ideal-clients">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -461,9 +542,7 @@ export default function Home() {
                 Built for research teams with software gaps
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                We're a good fit if your science is solid but the tooling hasn't caught up — a
-                common situation for labs, research groups, and technical programs that need
-                custom software without a full in-house dev team.
+                I'm a good fit if you need a custom software tool, but don't have a full-time developer on staff to build it.
               </p>
             </div>
 
@@ -503,89 +582,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="py-24 md:py-28 px-6 bg-muted/30" data-testid="section-project-types">
-          <div className="max-w-5xl mx-auto">
-            <div className="max-w-2xl mb-14">
-              <p className="eyebrow mb-4">My Work</p>
-              <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                Selected scientific software
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                A handful of web tools and platforms I've built for geospatial analysis,
-                technoeconomic and life-cycle assessment, and research machine learning.
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-5">
-              {[
-                {
-                  title: "Cal BioScape",
-                  href: "https://calbioscape.org",
-                  desc: "Geospatial mapping platform for California's circular bioeconomy — crop residues, biorefineries, anaerobic digesters, and processing infrastructure across the Northern San Joaquin Valley. Built with the University of Washington SSEC as part of the Schmidt Sciences BioCircular Valley initiative.",
-                },
-                {
-                  title: "Project PISCES",
-                  href: "https://projectpisces.org",
-                  desc: "Process Integration & Synthesis using Chemical Engineering Standards — a JSON-based Standard Flowsheet Format and LLM pipeline that mines unit operations, streams, and operating conditions from peer-reviewed bioprocess literature into a FAIR, AI-ready knowledge base.",
-                },
-                {
-                  title: "CEA SiteScout",
-                  href: "https://www.ceasitescout.org",
-                  desc: "Geospatial decision support tool for siting controlled environment agriculture facilities. Layers climate, land use, water, utility, and co-location data and quantifies the benefits of selected energy and water efficiency measures for candidate sites.",
-                },
-                {
-                  title: "LEAD TEA/LCA Tools",
-                  href: "https://lead.jbei.org",
-                  desc: "Public-facing portfolio for JBEI's Life-cycle, Economics, and Agronomy division — a unified landing page for the TEA and LCA web tools, datasets, and tutorials I help build alongside the LEAD team.",
-                },
-                {
-                  title: "Agile LCA",
-                  href: "https://agilelca.org",
-                  desc: "Streamlined life-cycle assessment tool for rapidly estimating greenhouse gas emissions of products from direct material and energy inputs, with an emissions breakdown dashboard and CSV export.",
-                },
-                {
-                  title: "BioSiting Tool",
-                  href: "https://biositing.jbei.org",
-                  desc: "National geospatial platform for analyzing bioeconomy resources and infrastructure across the U.S. — agricultural and forest residues, waste streams, biorefineries, pipelines, environmental justice indicators, and CO₂ geologic storage potential, with custom buffer-zone queries.",
-                },
-                {
-                  title: "DSP Designer",
-                  href: "https://dspdesigner.lbl.gov",
-                  desc: "Automated recommendation tool for downstream bioprocess development. Selects unit operations and estimates costs for the separation and purification of bio-derived products from microbes and plants.",
-                },
-                {
-                  title: "Feedstock to Function",
-                  href: "https://feedstock-to-function.lbl.gov",
-                  desc: "Database and machine learning tool for predicting properties of biomass-derived molecules and fuel blends — boiling and flash points, melting points, yield sooting index, and heat of combustion — across 10,000+ candidate molecules for sustainable aviation fuel R&D, with linked techno-economic and life-cycle dashboards.",
-                },
-              ].map((proj, i) => (
-                <a
-                  key={proj.title}
-                  href={proj.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block rounded-xl border border-border/70 bg-background p-6 hover:border-secondary/40 hover:bg-card/40 transition-colors"
-                  data-testid={`card-project-${i}`}
-                >
-                  <h3 className="font-serif text-lg mb-3 group-hover:text-secondary transition-colors">
-                    {proj.title}
-                    <ArrowUpRight className="inline-block ml-1.5 size-4 opacity-60 align-middle" />
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{proj.desc}</p>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="publications" className="py-24 md:py-28 px-6" data-testid="section-publications">
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="eyebrow mb-4">My Publications</p>
-              <h2 className="font-serif text-3xl md:text-4xl mb-4">Published work</h2>
+              <p className="eyebrow mb-4">My Impact</p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">
+                Published work
+              </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Peer-reviewed articles, conference papers, and registered scientific software
-                I've co-authored across bioenergy, geospatial analysis, machine learning, and
-                sustainable systems research.
+                Peer-reviewed articles, conference papers, and scientific software I've published alongside leading domain experts.
               </p>
             </div>
 
@@ -669,91 +674,69 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="py-24 md:py-28 px-6 bg-muted/30" data-testid="section-about">
+        <section id="about" className="pt-12 md:pt-14 pb-10 md:pb-12 px-6 bg-muted/30" data-testid="section-about">
           <div className="max-w-2xl mx-auto text-center">
             <div className="mb-8 flex justify-center">
               <img
                 src={HEADSHOT_SRC}
                 alt="Tyler T. Huntington"
-                className="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover object-[center_15%] border border-border/70 shadow-sm"
+                className="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover object-[center_15%] border border-border/70 shadow-sm"
                 data-testid="img-headshot"
               />
             </div>
-            <p className="eyebrow mb-4">About</p>
+            <p className="eyebrow mb-4">About Me</p>
             <h2 className="font-serif text-3xl md:text-4xl mb-6">
-              Scientific software, customized around your research.
+              A commitment to science & software
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              I've spent nearly a decade developing scientific software tools for Lawrence
-              Berkeley National Laboratory — web applications that help researchers, analysts,
-              and policymakers actually use the science, not just read about it.
-            </p>
-            <div className="hairline mb-8" />
-            <p className="text-muted-foreground italic font-serif text-lg leading-relaxed">
-              My work spans sustainable energy, biofuels, bioproduct supply chains, and synthetic
-              biology, all backed by a record of co-authored publications and registered
-              scientific software. The throughline is making rigorous science accessible
-              through well-engineered applications.
+            <p className="text-muted-foreground leading-relaxed">
+              I've spent a decade developing software to help researchers, industry partners,
+              and policymakers get the most out of scientific research. 
+              My work has spanned a range of fields from synthetic biology and
+              sustainable agriculture to TEA/LCA, machine learning, and geospatial analysis.
+              Along the way, I've built a strong track record of published papers and software tools alongside 
+              leading domain experts.
+              I am genuinely curious person and love branching into new research areas where I can apply my
+              development skills to amplify scientific impact.
             </p>
           </div>
         </section>
 
-        <section id="contact" className="py-24 md:py-28 px-6 bg-muted/30 border-t border-border/60" data-testid="section-contact">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="eyebrow mb-4">Contact</p>
-              <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                Have research that needs to become software?
-              </h2>
-              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto mb-4">
-                Tell me about your project — the science, your current notebooks or scripts, and
-                what a deployed tool would need to do. I'll help you figure out whether a custom
-                build makes sense, and if so, what shape it should take.
-              </p>
-              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                <span className="text-foreground font-medium">
-                  First conversations are free.
-                </span>{" "}
-                I'm happy to do a no-cost consultation to talk through your project needs
-                before any work begins.
-              </p>
-            </div>
+        <section id="contact" className="pt-10 md:pt-12 pb-24 md:pb-28 px-6 bg-muted/30 border-t border-border/60" data-testid="section-contact">
+          <div className="max-w-xl mx-auto text-center">
+            <p className="eyebrow mb-4">Contact</p>
+            <h2 className="font-serif text-3xl md:text-4xl mb-4">
+              <a
+                href={CONTACT_MAILTO}
+                className="text-foreground hover:text-secondary transition-colors break-all"
+                data-testid="link-contact-email"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-10">
+              Email me to discuss your needs and explore how I can help. <br/>
+              I offer free consultations upon request and look forward to hearing from you!
+            </p>
 
-            {/* TODO: contact form is temporarily disabled; restore from git history when ready to wire it up. */}
+            {/* TODO: contact form disabled — restore from git history when ready to wire it up */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="rounded-xl border border-border/70 bg-background p-8 md:p-10 text-center"
               data-testid="card-contact-email"
             >
-              <div className="mx-auto mb-5 flex size-12 items-center justify-center rounded-full bg-accent/60 text-secondary">
-                <Mail className="size-5" aria-hidden />
-              </div>
-              <p className="text-sm uppercase tracking-wide text-muted-foreground mb-3">
-                Reach me at
-              </p>
-              <a
-                href={CONTACT_MAILTO}
-                className="font-serif text-xl md:text-2xl text-foreground hover:text-secondary transition-colors break-all"
-                data-testid="link-contact-email"
+              <Button
+                asChild
+                size="lg"
+                className="h-12 px-8 text-base font-medium"
+                data-testid="button-contact-email"
               >
-                {CONTACT_EMAIL}
-              </a>
-              <div className="mt-8">
-                <Button
-                  asChild
-                  size="lg"
-                  className="h-12 px-8 text-base font-medium"
-                  data-testid="button-contact-email"
-                >
-                  <a href={CONTACT_MAILTO}>
-                    Email me to schedule a free consultation
-                    <ArrowUpRight className="ml-1.5 size-4" />
-                  </a>
-                </Button>
-              </div>
+                <a href={CONTACT_MAILTO}>
+                  Email me
+                  <ArrowUpRight className="ml-1.5 size-4" />
+                </a>
+              </Button>
             </motion.div>
           </div>
         </section>

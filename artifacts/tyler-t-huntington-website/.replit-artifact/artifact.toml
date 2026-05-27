@@ -2,7 +2,7 @@ kind = "web"
 previewPath = "/"
 title = "Tyler T. Huntington"
 version = "1.0.0"
-id = "artifacts/starling-website"
+id = "artifacts/tyler-t-huntington-website"
 router = "path"
 
 [[integratedSkills]]
@@ -15,11 +15,11 @@ paths = [ "/" ]
 localPort = 18878
 
 [services.development]
-run = "pnpm --filter @workspace/starling-website run dev"
+run = "pnpm --filter @workspace/tyler-t-huntington-website run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/starling-website", "run", "build" ]
-publicDir = "artifacts/starling-website/dist/public"
+build = [ "pnpm", "--filter", "@workspace/tyler-t-huntington-website", "run", "build" ]
+publicDir = "artifacts/tyler-t-huntington-website/dist/public"
 serve = "static"
 
 [[services.production.rewrites]]

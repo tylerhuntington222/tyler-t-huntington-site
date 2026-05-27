@@ -1,9 +1,10 @@
-# [Project name]
+# Tyler T. Huntington — Personal Site
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Single-page marketing site for Tyler T. Huntington, an independent scientific software contractor.
 
 ## Run & Operate
 
+- `pnpm --filter @workspace/tyler-t-huntington-website run dev` — run the personal site (port 18878 on Replit)
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
