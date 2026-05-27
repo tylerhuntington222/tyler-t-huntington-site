@@ -713,8 +713,8 @@ export default function Home() {
               </a>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-10">
-              Email me to discuss your needs and explore how I can help. <br/>
-              I offer free consultations upon request and look forward to hearing from you!
+              Email me to get in touch.<br/>
+              I offer free consultations to discuss your needs and explore how I can help.
             </p>
 
             {/* TODO: contact form disabled — restore from git history when ready to wire it up */}
