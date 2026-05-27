@@ -230,13 +230,12 @@ export default function Home() {
             >
               <p className="eyebrow mb-6">What I Build</p>
               <h1 className="font-serif text-[2.75rem] md:text-[4.25rem] leading-[1.05] tracking-tight text-foreground mb-7">
-                Software that elevates your science.
+                Software tools to elevate <br/> your science.
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-                I help data-driven teams turn 
-                research into polished software solutions. From scripts, 
-                spreadsheets, and Jupyter notebooks to fully deployed 
-                web tools, I can help you get you there in weeks, not months.
+                I help data-driven teams turn research into polished software solutions. From
+                scripts, spreadsheets, and Jupyter notebooks to fully deployed web tools, I can help
+                you get you there in weeks, not months.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
