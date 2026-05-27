@@ -210,10 +210,9 @@ export default function Home() {
                 built around your science.
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-                I help research teams turn Jupyter notebooks, scripts, and one-off
-                prototypes into stable web applications — geospatial tools, modeling
-                interfaces, and decision dashboards that keep working after the original
-                project wraps up.
+                I help research teams turn 
+                spreadsheets, scripts, and Jupyter notebooks
+                into fully-deployed web apps that will make your science shine. 
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
