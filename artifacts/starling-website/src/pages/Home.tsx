@@ -100,7 +100,7 @@ export default function Home() {
         className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur-xl"
         data-testid="header-main"
       >
-        <div className="max-w-5xl mx-auto px-6 h-28 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-6 h-24 flex items-center justify-between">
           <button
             type="button"
             onClick={scrollToTop}
@@ -111,7 +111,7 @@ export default function Home() {
               src={HEADSHOT_SRC}
               alt=""
               aria-hidden
-              className="size-20 shrink-0 rounded-full object-cover object-[center_15%] border border-border/70"
+              className="size-16 shrink-0 rounded-full object-cover object-[center_15%] border border-border/70"
               data-testid="img-nav-headshot"
             />
             <span className="min-w-0">
