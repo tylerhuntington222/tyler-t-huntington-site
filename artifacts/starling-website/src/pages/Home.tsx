@@ -100,25 +100,25 @@ export default function Home() {
         className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur-xl"
         data-testid="header-main"
       >
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
           <button
             type="button"
             onClick={scrollToTop}
-            className="group flex items-center gap-3 text-left min-w-0"
+            className="group flex items-center gap-3.5 text-left min-w-0"
             data-testid="link-home"
           >
             <img
               src={HEADSHOT_SRC}
               alt=""
               aria-hidden
-              className="size-9 shrink-0 rounded-full object-cover object-[center_15%] border border-border/70"
+              className="size-13 shrink-0 rounded-full object-cover object-[center_15%] border border-border/70"
               data-testid="img-nav-headshot"
             />
             <span className="min-w-0">
-              <span className="block text-[15px] font-medium tracking-tight text-foreground group-hover:text-foreground/80 transition-colors truncate">
+              <span className="block text-base font-medium tracking-tight text-foreground group-hover:text-foreground/80 transition-colors truncate">
                 Tyler T. Huntington
               </span>
-              <span className="block text-[11px] text-muted-foreground tracking-wide truncate">
+              <span className="block text-xs text-muted-foreground tracking-wide truncate">
                 Scientific Software Contractor
               </span>
             </span>
@@ -634,7 +634,7 @@ export default function Home() {
               <img
                 src={HEADSHOT_SRC}
                 alt="Tyler T. Huntington"
-                className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover object-[center_15%] border border-border/70 shadow-sm"
+                className="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover object-[center_15%] border border-border/70 shadow-sm"
                 data-testid="img-headshot"
               />
             </div>
