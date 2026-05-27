@@ -228,14 +228,13 @@ export default function Home() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="max-w-3xl"
             >
-              <p className="eyebrow mb-6">What I Build</p>
+              <p className="eyebrow mb-6">My Mission</p>
               <h1 className="font-serif text-[2.75rem] md:text-[4.25rem] leading-[1.05] tracking-tight text-foreground mb-7">
-                Software tools to elevate <br/> your science.
+                Scientific software, built for lasting impact.<br/>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
                 I help data-driven teams turn research into polished software solutions. From
-                scripts, spreadsheets, and Jupyter notebooks to fully deployed web tools, I can help
-                you get you there in weeks, not months.
+                scripts, spreadsheets, and Jupyter notebooks to fully deployed web tools in weeks, not months.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
@@ -325,7 +324,7 @@ export default function Home() {
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 I believe science has the potential to solve our world's greatest challenges.<br/>
-                My mission is to build the tools that will pave the way.
+                My mission is to build the tools that will get us there.
               </p>
             </div>
             <motion.div
