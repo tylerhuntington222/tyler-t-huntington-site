@@ -1,20 +1,22 @@
 import { useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+// TODO: re-enable when wiring up the contact form
+// import { useForm } from "react-hook-form";
+// import { z } from "zod";
+// import { zodResolver } from "@hookform/resolvers/zod";
+import { Menu, X, ArrowUpRight, Mail } from "lucide-react";
 
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+// TODO: re-enable when wiring up the contact form
+// import {
+//   Form,
+//   FormControl,
+//   FormField,
+//   FormItem,
+//   FormLabel,
+//   FormMessage,
+// } from "@/components/ui/form";
+// import { Input } from "@/components/ui/input";
+// import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import {
   publications,
@@ -24,17 +26,22 @@ import {
   getPublicationUrl,
 } from "@/data/publications";
 
-const contactFormSchema = z.object({
-  name: z.string().min(1, "Please enter your name"),
-  email: z.string().email("Please enter a valid email address"),
-  organization: z.string().min(1, "Please enter your organization"),
-  projectDetails: z.string().min(10, "Please share a few details about what you're trying to build"),
-  budget: z.string().optional(),
-});
-
-type ContactFormValues = z.infer<typeof contactFormSchema>;
+// TODO: re-enable when wiring up the contact form
+// const contactFormSchema = z.object({
+//   name: z.string().min(1, "Please enter your name"),
+//   email: z.string().email("Please enter a valid email address"),
+//   organization: z.string().min(1, "Please enter your organization"),
+//   projectDetails: z.string().min(10, "Please share a few details about what you're trying to build"),
+//   budget: z.string().optional(),
+// });
+//
+// type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const HEADSHOT_SRC = `${import.meta.env.BASE_URL}tyler-huntington-headshot.png`;
+const CONTACT_EMAIL = "tylerthuntington.com@gmail.com";
+const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+  "Project inquiry",
+)}`;
 
 const navLinks = [
   { id: "projects", label: "Work" },
@@ -46,23 +53,25 @@ const navLinks = [
 ];
 
 export default function Home() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      organization: "",
-      projectDetails: "",
-      budget: "",
-    },
-  });
-
-  function onSubmit(_data: ContactFormValues) {
-    setIsSubmitted(true);
-  }
+  // TODO: re-enable when wiring up the contact form
+  // const [isSubmitted, setIsSubmitted] = useState(false);
+  //
+  // const form = useForm<ContactFormValues>({
+  //   resolver: zodResolver(contactFormSchema),
+  //   defaultValues: {
+  //     name: "",
+  //     email: "",
+  //     organization: "",
+  //     projectDetails: "",
+  //     budget: "",
+  //   },
+  // });
+  //
+  // function onSubmit(_data: ContactFormValues) {
+  //   setIsSubmitted(true);
+  // }
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
@@ -111,14 +120,14 @@ export default function Home() {
               src={HEADSHOT_SRC}
               alt=""
               aria-hidden
-              className="size-14 shrink-0 rounded-full object-cover object-[center_15%] border border-border/70"
+              className="size-13 shrink-0 rounded-full object-cover object-[center_15%] border border-border/70"
               data-testid="img-nav-headshot"
             />
             <span className="min-w-0">
-              <span className="block text-lg font-medium tracking-tight text-foreground group-hover:text-foreground/80 transition-colors truncate">
+              <span className="block text-base font-medium tracking-tight text-foreground group-hover:text-foreground/80 transition-colors truncate">
                 Tyler T. Huntington
               </span>
-              <span className="block text-sm text-muted-foreground tracking-wide truncate">
+              <span className="block text-xs text-muted-foreground tracking-wide truncate">
                 Scientific Software Contractor
               </span>
             </span>
@@ -203,7 +212,7 @@ export default function Home() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="max-w-3xl"
             >
-              <p className="eyebrow mb-6">Scientific Software Contractor</p>
+              <p className="eyebrow mb-6">What I Do</p>
               <h1 className="font-serif text-[2.75rem] md:text-[4.25rem] leading-[1.05] tracking-tight text-foreground mb-7">
                 Production-grade software,
                 <br />
@@ -244,7 +253,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-12 gap-12 md:gap-20">
               <div className="md:col-span-5">
-                <p className="eyebrow mb-4">Philosophy</p>
+                <p className="eyebrow mb-4">My Philosophy</p>
                 <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-5">
                   Research code is not the same as research software.
                 </h2>
@@ -267,7 +276,7 @@ export default function Home() {
                 {[
                   {
                     title: "From notebook to deployed tool",
-                    desc: "Turn Jupyter notebooks, R scripts, and research prototypes into stable web apps that collaborators and stakeholders can actually run.",
+                    desc: "Turn scripts, spreadsheets, Jupyter notebooks, and other research artifacts into web apps that collaborators and stakeholders can actually run.",
                     accent: true,
                   },
                   {
@@ -302,11 +311,13 @@ export default function Home() {
         <section id="services" className="py-24 md:py-28 px-6 bg-muted/30" data-testid="section-services">
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="eyebrow mb-4">Services</p>
-              <h2 className="font-serif text-3xl md:text-4xl mb-4">What I build</h2>
+              <p className="eyebrow mb-4">My Services</p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">
+                Scientific software built to last
+              </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Science-focused software for research groups, labs, and technical programs,
-                from internal prototypes to public-facing web tools.
+                For research groups, labs, and technical programs — from internal
+                prototypes to public-facing web tools.
               </p>
             </div>
             <motion.div
@@ -360,7 +371,7 @@ export default function Home() {
         <section id="approach" className="py-24 md:py-28 px-6" data-testid="section-approach">
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-16">
-              <p className="eyebrow mb-4">Process</p>
+              <p className="eyebrow mb-4">My Process</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">
                 A process built for research software
               </h2>
@@ -381,7 +392,7 @@ export default function Home() {
                 {
                   num: "02",
                   title: "Define the software path",
-                  desc: "I map the notebook or prototype to a real web architecture (scope, APIs, data flow, and deployment) before any production code gets written.",
+                  desc: "I map the notebook or prototype to a real web architecture — scope, APIs, data flow, and deployment — before any production code gets written.",
                 },
                 {
                   num: "03",
@@ -450,7 +461,7 @@ export default function Home() {
                 Built for research teams with software gaps
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                We're a good fit if your science is solid but the tooling hasn't caught up. That's a
+                We're a good fit if your science is solid but the tooling hasn't caught up — a
                 common situation for labs, research groups, and technical programs that need
                 custom software without a full in-house dev team.
               </p>
@@ -495,7 +506,7 @@ export default function Home() {
         <section id="projects" className="py-24 md:py-28 px-6 bg-muted/30" data-testid="section-project-types">
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="eyebrow mb-4">Work</p>
+              <p className="eyebrow mb-4">My Work</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">
                 Selected scientific software
               </h2>
@@ -507,30 +518,60 @@ export default function Home() {
             <div className="grid sm:grid-cols-2 gap-5">
               {[
                 {
+                  title: "Cal BioScape",
+                  href: "https://calbioscape.org",
+                  desc: "Geospatial mapping platform for California's circular bioeconomy — crop residues, biorefineries, anaerobic digesters, and processing infrastructure across the Northern San Joaquin Valley. Built with the University of Washington SSEC as part of the Schmidt Sciences BioCircular Valley initiative.",
+                },
+                {
+                  title: "Project PISCES",
+                  href: "https://projectpisces.org",
+                  desc: "Process Integration & Synthesis using Chemical Engineering Standards — a JSON-based Standard Flowsheet Format and LLM pipeline that mines unit operations, streams, and operating conditions from peer-reviewed bioprocess literature into a FAIR, AI-ready knowledge base.",
+                },
+                {
+                  title: "CEA SiteScout",
+                  href: "https://www.ceasitescout.org",
+                  desc: "Geospatial decision support tool for siting controlled environment agriculture facilities. Layers climate, land use, water, utility, and co-location data and quantifies the benefits of selected energy and water efficiency measures for candidate sites.",
+                },
+                {
+                  title: "LEAD TEA/LCA Tools",
+                  href: "https://lead.jbei.org",
+                  desc: "Public-facing portfolio for JBEI's Life-cycle, Economics, and Agronomy division — a unified landing page for the TEA and LCA web tools, datasets, and tutorials I help build alongside the LEAD team.",
+                },
+                {
+                  title: "Agile LCA",
+                  href: "https://agilelca.org",
+                  desc: "Streamlined life-cycle assessment tool for rapidly estimating greenhouse gas emissions of products from direct material and energy inputs, with an emissions breakdown dashboard and CSV export.",
+                },
+                {
                   title: "BioSiting Tool",
-                  desc: "Geospatial web platform for mapping bioeconomy resources and infrastructure across the United States: agricultural residues, waste streams, biorefineries, pipelines, and environmental data layers. Used to analyze resource availability by region and within custom buffer zones.",
+                  href: "https://biositing.jbei.org",
+                  desc: "National geospatial platform for analyzing bioeconomy resources and infrastructure across the U.S. — agricultural and forest residues, waste streams, biorefineries, pipelines, environmental justice indicators, and CO₂ geologic storage potential, with custom buffer-zone queries.",
                 },
                 {
-                  title: "BioC2G Tool",
-                  desc: "Web interface for technoeconomic analysis and life-cycle assessment of biofuel and bioproduct production pathways. Calculates minimum selling price, water consumption, and greenhouse gas emissions, with downloadable model outputs.",
+                  title: "DSP Designer",
+                  href: "https://dspdesigner.lbl.gov",
+                  desc: "Automated recommendation tool for downstream bioprocess development. Selects unit operations and estimates costs for the separation and purification of bio-derived products from microbes and plants.",
                 },
                 {
-                  title: "California BioSiting and Cal Bioscape",
-                  desc: "State-scale extensions of my biositing work: interactive geospatial tools for mapping biomass resources and bioeconomy infrastructure, built around California research and policy questions.",
-                },
-                {
-                  title: "Research ML and analysis pipelines",
-                  desc: "Machine learning workflows for biogas prediction, biomass yield forecasting, surrogate process models, and molecular descriptor selection, moved from research code into reproducible, deployable software.",
+                  title: "Feedstock to Function",
+                  href: "https://feedstock-to-function.lbl.gov",
+                  desc: "Database and machine learning tool for predicting properties of biomass-derived molecules and fuel blends — boiling and flash points, melting points, yield sooting index, and heat of combustion — across 10,000+ candidate molecules for sustainable aviation fuel R&D, with linked techno-economic and life-cycle dashboards.",
                 },
               ].map((proj, i) => (
-                <div
+                <a
                   key={proj.title}
-                  className="rounded-xl border border-border/70 bg-background p-6 hover:border-secondary/40 transition-colors"
+                  href={proj.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-xl border border-border/70 bg-background p-6 hover:border-secondary/40 hover:bg-card/40 transition-colors"
                   data-testid={`card-project-${i}`}
                 >
-                  <h3 className="font-serif text-lg mb-3">{proj.title}</h3>
+                  <h3 className="font-serif text-lg mb-3 group-hover:text-secondary transition-colors">
+                    {proj.title}
+                    <ArrowUpRight className="inline-block ml-1.5 size-4 opacity-60 align-middle" />
+                  </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{proj.desc}</p>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -539,7 +580,7 @@ export default function Home() {
         <section id="publications" className="py-24 md:py-28 px-6" data-testid="section-publications">
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="eyebrow mb-4">Publications</p>
+              <p className="eyebrow mb-4">My Publications</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">Published work</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Peer-reviewed articles, conference papers, and registered scientific software
@@ -640,11 +681,12 @@ export default function Home() {
             </div>
             <p className="eyebrow mb-4">About</p>
             <h2 className="font-serif text-3xl md:text-4xl mb-6">
-              Scientific software, from the lab outward.
+              Scientific software, customized around your research.
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              I've spent a decade building scientific software: web tools that help researchers,
-              analysts, and policymakers actually use the science, not just read about it.
+              I've spent nearly a decade developing scientific software tools for Lawrence
+              Berkeley National Laboratory — web applications that help researchers, analysts,
+              and policymakers actually use the science, not just read about it.
             </p>
             <div className="hairline mb-8" />
             <p className="text-muted-foreground italic font-serif text-lg leading-relaxed">
@@ -663,133 +705,56 @@ export default function Home() {
               <h2 className="font-serif text-3xl md:text-4xl mb-4">
                 Have research that needs to become software?
               </h2>
-              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                Tell me about your project: the science, your current notebooks or scripts, and
+              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto mb-4">
+                Tell me about your project — the science, your current notebooks or scripts, and
                 what a deployed tool would need to do. I'll help you figure out whether a custom
                 build makes sense, and if so, what shape it should take.
               </p>
+              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+                <span className="text-foreground font-medium">
+                  First conversations are free.
+                </span>{" "}
+                I'm happy to do a no-cost consultation to talk through your project needs
+                before any work begins.
+              </p>
             </div>
 
-            {isSubmitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="rounded-xl border border-border/70 bg-background p-10 text-center"
-                data-testid="message-success"
+            {/* TODO: contact form is temporarily disabled; restore from git history when ready to wire it up. */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="rounded-xl border border-border/70 bg-background p-8 md:p-10 text-center"
+              data-testid="card-contact-email"
+            >
+              <div className="mx-auto mb-5 flex size-12 items-center justify-center rounded-full bg-accent/60 text-secondary">
+                <Mail className="size-5" aria-hidden />
+              </div>
+              <p className="text-sm uppercase tracking-wide text-muted-foreground mb-3">
+                Reach me at
+              </p>
+              <a
+                href={CONTACT_MAILTO}
+                className="font-serif text-xl md:text-2xl text-foreground hover:text-secondary transition-colors break-all"
+                data-testid="link-contact-email"
               >
-                <h3 className="font-serif text-2xl mb-3">Thank you.</h3>
-                <p className="text-muted-foreground text-sm">
-                  Your message is in. I'll be in touch shortly to keep the conversation going.
-                </p>
-              </motion.div>
-            ) : (
-              <Form {...form}>
-                <form
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  className="rounded-xl border border-border/70 bg-background p-6 md:p-8 space-y-5"
-                  data-testid="form-contact"
+                {CONTACT_EMAIL}
+              </a>
+              <div className="mt-8">
+                <Button
+                  asChild
+                  size="lg"
+                  className="h-12 px-8 text-base font-medium"
+                  data-testid="button-contact-email"
                 >
-                  <div className="grid md:grid-cols-2 gap-5">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Name</FormLabel>
-                          <FormControl>
-                            <Input
-                              className="border-border/80 bg-background focus-visible:ring-secondary/30"
-                              {...field}
-                              data-testid="input-name"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email</FormLabel>
-                          <FormControl>
-                            <Input
-                              type="email"
-                              className="border-border/80 bg-background focus-visible:ring-secondary/30"
-                              {...field}
-                              data-testid="input-email"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  <FormField
-                    control={form.control}
-                    name="organization"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Organization</FormLabel>
-                        <FormControl>
-                          <Input
-                            className="border-border/80 bg-background focus-visible:ring-secondary/30"
-                            {...field}
-                            data-testid="input-organization"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="projectDetails"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Tell me about your research or project</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            className="border-border/80 min-h-[120px] bg-background focus-visible:ring-secondary/30"
-                            {...field}
-                            data-testid="input-project-details"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="budget"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Budget / timeline (optional)</FormLabel>
-                        <FormControl>
-                          <Input
-                            className="border-border/80 bg-background focus-visible:ring-secondary/30"
-                            {...field}
-                            data-testid="input-budget"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <div className="pt-2">
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full md:w-auto h-12 px-8 text-base font-medium"
-                      data-testid="button-submit"
-                    >
-                      Send message
-                    </Button>
-                  </div>
-                </form>
-              </Form>
-            )}
+                  <a href={CONTACT_MAILTO}>
+                    Email me to schedule a free consultation
+                    <ArrowUpRight className="ml-1.5 size-4" />
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </section>
       </main>
