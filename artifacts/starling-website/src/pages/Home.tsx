@@ -305,7 +305,7 @@ export default function Home() {
               <p className="eyebrow mb-4">Services</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">What I build</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Science-focused software for research groups, labs, and technical programs —
+                Science-focused software for research groups, labs, and technical programs,
                 from internal prototypes to public-facing web tools.
               </p>
             </div>
@@ -381,7 +381,7 @@ export default function Home() {
                 {
                   num: "02",
                   title: "Define the software path",
-                  desc: "I map the notebook or prototype to a real web architecture — scope, APIs, data flow, and deployment — before any production code gets written.",
+                  desc: "I map the notebook or prototype to a real web architecture (scope, APIs, data flow, and deployment) before any production code gets written.",
                 },
                 {
                   num: "03",
@@ -450,7 +450,7 @@ export default function Home() {
                 Built for research teams with software gaps
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                We're a good fit if your science is solid but the tooling hasn't caught up — a
+                We're a good fit if your science is solid but the tooling hasn't caught up. That's a
                 common situation for labs, research groups, and technical programs that need
                 custom software without a full in-house dev team.
               </p>
@@ -508,7 +508,7 @@ export default function Home() {
               {[
                 {
                   title: "BioSiting Tool",
-                  desc: "Geospatial web platform for mapping bioeconomy resources and infrastructure across the United States — agricultural residues, waste streams, biorefineries, pipelines, and environmental data layers. Used to analyze resource availability by region and within custom buffer zones.",
+                  desc: "Geospatial web platform for mapping bioeconomy resources and infrastructure across the United States: agricultural residues, waste streams, biorefineries, pipelines, and environmental data layers. Used to analyze resource availability by region and within custom buffer zones.",
                 },
                 {
                   title: "BioC2G Tool",
@@ -516,11 +516,11 @@ export default function Home() {
                 },
                 {
                   title: "California BioSiting and Cal Bioscape",
-                  desc: "State-scale extensions of my biositing work — interactive geospatial tools for mapping biomass resources and bioeconomy infrastructure, built around California research and policy questions.",
+                  desc: "State-scale extensions of my biositing work: interactive geospatial tools for mapping biomass resources and bioeconomy infrastructure, built around California research and policy questions.",
                 },
                 {
                   title: "Research ML and analysis pipelines",
-                  desc: "Machine learning workflows for biogas prediction, biomass yield forecasting, surrogate process models, and molecular descriptor selection — moved from research code into reproducible, deployable software.",
+                  desc: "Machine learning workflows for biogas prediction, biomass yield forecasting, surrogate process models, and molecular descriptor selection, moved from research code into reproducible, deployable software.",
                 },
               ].map((proj, i) => (
                 <div
@@ -643,7 +643,7 @@ export default function Home() {
               Scientific software, from the lab outward.
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              I've spent a decade building scientific software — web tools that help researchers,
+              I've spent a decade building scientific software: web tools that help researchers,
               analysts, and policymakers actually use the science, not just read about it.
             </p>
             <div className="hairline mb-8" />
@@ -664,7 +664,7 @@ export default function Home() {
                 Have research that needs to become software?
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                Tell me about your project — the science, your current notebooks or scripts, and
+                Tell me about your project: the science, your current notebooks or scripts, and
                 what a deployed tool would need to do. I'll help you figure out whether a custom
                 build makes sense, and if so, what shape it should take.
               </p>
