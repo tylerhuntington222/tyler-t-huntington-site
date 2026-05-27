@@ -643,7 +643,7 @@ export default function Home() {
               Scientific software, from the lab outward.
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              I'm an independent scientific software contractor with years of
+              I'm an independent scientific software contractor with nearly a decade of
               experience building publicly deployed web tools for geospatial analysis,
               technoeconomic and life-cycle assessment, and machine learning. My focus is turning
               research methods into software that scientists, analysts, and policymakers can
