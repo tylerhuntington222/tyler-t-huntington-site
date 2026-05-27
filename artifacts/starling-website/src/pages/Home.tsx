@@ -100,25 +100,25 @@ export default function Home() {
         className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur-xl"
         data-testid="header-main"
       >
-        <div className="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-6 h-28 flex items-center justify-between">
           <button
             type="button"
             onClick={scrollToTop}
-            className="group flex items-center gap-3.5 text-left min-w-0"
+            className="group flex items-center gap-4 text-left min-w-0"
             data-testid="link-home"
           >
             <img
               src={HEADSHOT_SRC}
               alt=""
               aria-hidden
-              className="size-13 shrink-0 rounded-full object-cover object-[center_15%] border border-border/70"
+              className="size-20 shrink-0 rounded-full object-cover object-[center_15%] border border-border/70"
               data-testid="img-nav-headshot"
             />
             <span className="min-w-0">
-              <span className="block text-base font-medium tracking-tight text-foreground group-hover:text-foreground/80 transition-colors truncate">
+              <span className="block text-lg font-medium tracking-tight text-foreground group-hover:text-foreground/80 transition-colors truncate">
                 Tyler T. Huntington
               </span>
-              <span className="block text-xs text-muted-foreground tracking-wide truncate">
+              <span className="block text-sm text-muted-foreground tracking-wide truncate">
                 Scientific Software Contractor
               </span>
             </span>
