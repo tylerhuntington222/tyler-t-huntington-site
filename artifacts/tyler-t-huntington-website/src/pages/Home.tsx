@@ -235,7 +235,7 @@ export default function Home() {
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
                 I help research teams build leading-edge software tools. <br/>
                 My process can take you from scripts, spreadsheets, and notebooks 
-                to fully deployed web app in weeks, not months.
+                to fully deployed web apps in weeks, not months.
                 <br/><br/>
                 Let's build the software that will elevate your science. 
               </p>
