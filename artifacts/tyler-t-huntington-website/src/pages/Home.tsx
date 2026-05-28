@@ -228,13 +228,15 @@ export default function Home() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="max-w-3xl"
             >
-              <p className="eyebrow mb-6">My Mission</p>
+              <p className="eyebrow mb-6">What I Do</p>
               <h1 className="font-serif text-[2.75rem] md:text-[4.25rem] leading-[1.05] tracking-tight text-foreground mb-7">
-                Scientific software, built for lasting impact.<br/>
+                Custom software development for high-impact science.<br/>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-                I help data-driven teams turn research into polished software solutions. From
-                scripts, spreadsheets, and Jupyter notebooks to fully deployed web tools in weeks, not months.
+                I help data-driven teams build software that elevates research.<br/>
+                My process turns scripts, spreadsheets, and notebooks 
+                into fully deployed web apps in weeks, not months. <br/><br/>Let's bring your science into the spotlight.
+                
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
@@ -268,16 +270,19 @@ export default function Home() {
               <div className="md:col-span-5">
                 <p className="eyebrow mb-4">My Philosophy</p>
                 <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-5">
-                  Your research code deserves the spotlight.
+                  Your research code deserves an upgrade.
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Most scientific analyses start in one-off scripts that 
-                  only your team can run locally. That's the right approach for
-                  exploration. 
-                  But the moment your model or workflow needs a wider audience, 
-                  real software engineering can help. 
-                  My job is to bridge that gap: understand your science,
-                  then build the tooling around it that is durable, scalable, and enjoyable to use.
+                  Most scientific analyses live in scripts and spreadsheets that 
+                  only your team knows how to run. That's a great approach for
+                  getting started.
+                  But the moment you want your model to have a wider audience,
+                  real software engineering is needed to help you scale.
+                  That's where I come in. My expertise lies in bridging the gap between
+                  internal research assets and user-facing software.
+                  My process starts by understanding your existing code and data,
+                  then building durable software around it that will amplify
+                  your research impact.
                 </p>
               </div>
               <motion.div
@@ -289,8 +294,8 @@ export default function Home() {
               >
                 {[
                   {
-                    title: "From script to deployed tool",
-                    desc: "Turn scripts, spreadsheets, Jupyter notebooks, and other research artifacts into web apps that collaborators and stakeholders can actually run.",
+                    title: "Grounded in your research",
+                    desc: "Turn scripts, spreadsheets, Jupyter notebooks, and other research assets into web apps that collaborators and stakeholders can actually run.",
                   },
                   {
                     title: "Built for scientific data",
@@ -380,7 +385,7 @@ export default function Home() {
             <div className="max-w-2xl mb-16">
               <p className="eyebrow mb-4">My Process</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                A process tailored around your science.
+                Focused around your needs, from start to finish.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 Scientific software needs a balance of structure and flexibility to support new data and models over time.
@@ -713,7 +718,7 @@ export default function Home() {
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-10">
               Email me to get in touch.<br/>
-              I offer free consultations to discuss project needs and explore how I can help.
+              Free consultations available to discuss project needs and scope.
             </p>
 
             {/* TODO: contact form disabled — restore from git history when ready to wire it up */}

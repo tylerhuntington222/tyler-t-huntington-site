@@ -85,6 +85,14 @@ export const publications: Publication[] = [
     doi: "10.1016/j.fuel.2022.123836",
   },
   {
+    title: "Feedstock to Function tool property models",
+    authors: "AE Comesana, TT Huntington, CD Scown, KE Niemeyer, VH Rapp",
+    venue: "Zenodo",
+    year: 2022,
+    type: "software",
+    doi: "10.5281/zenodo.6383369",
+  },
+  {
     title: "Technoeconomic analysis for biofuels and bioproducts",
     authors: "CD Scown, NR Baral, M Yang, N Vora, T Huntington",
     venue: "Current Opinion in Biotechnology",
@@ -159,7 +167,7 @@ export const publications: Publication[] = [
     venue: "Resources, Conservation and Recycling",
     year: 2018,
     type: "article",
-    doi: "10.1016/j.resconrec.2018.08.028",
+    doi: "10.1016/j.resconrec.2018.08.022",
   },
   {
     title:
@@ -178,14 +186,6 @@ export const publications: Publication[] = [
     year: 2018,
     type: "article",
     doi: "10.1021/acs.est.8b00435",
-  },
-  {
-    title: "Feedstock to Function tool property models",
-    authors: "AE Comesana, TT Huntington, CD Scown, KE Niemeyer, VH Rapp",
-    venue: "Zenodo",
-    year: 2018,
-    type: "software",
-    doi: "10.5281/zenodo.6383369",
   },
 ];
 
