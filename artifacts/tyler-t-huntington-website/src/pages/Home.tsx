@@ -434,15 +434,15 @@ export default function Home() {
               <p className="eyebrow mb-4">Working together</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-5">Why work with me</h2>
               <p className="text-muted-foreground leading-relaxed">
-                I've spent a decade at the intersection of science and software development, 
-                publishing research and tools alongside leading experts in sustainable energy, agriculture, and environmental science.
+                I've spent a decade at the intersection of science and software, 
+                publishing research and tools alongside leading domain experts.
               </p>
             </div>
             <div className="space-y-8">
               {[
                 {
                   title: "Published research background",
-                  desc: "Co-author on peer-reviewed articles, conference papers, and registered scientific software in technoeconomic analysis, geospatial modeling, and ML for bioproduction. I understand how research is evaluated, not just how it's coded.",
+                  desc: "Co-author on peer-reviewed articles, conference papers, and registered scientific software in technoeconomic analysis, geospatial modeling, and machine learning. I understand how research is evaluated, not just how it's coded.",
                 },
                 {
                   title: "Research-to-production fluency",
@@ -473,7 +473,7 @@ export default function Home() {
                 Selected projects
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                A collection of web tools I've built over a decade in scientific research and software development.
+                A collection of tools I've built over my career in scientific software development.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-5">
