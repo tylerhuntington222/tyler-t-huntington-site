@@ -233,12 +233,11 @@ export default function Home() {
                 Custom software development for high-impact science.<br/>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-                I help data-driven teams build software to elevate their research. <br/>
-                My process turns scripts, spreadsheets, and notebooks 
-                into fully deployed web apps in weeks, not months. 
+                I help data-driven teams build software that advances research. <br/>
+                From scripts, spreadsheets, and notebooks 
+                to fully deployed web apps, my process is designed to set your science apart.
                 <br/><br/>
-                Let's work together to put your science in the spotlight.
-                
+                Let's build the tools that will shape the future of your field.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
@@ -270,20 +269,20 @@ export default function Home() {
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-12 gap-12 md:gap-20">
               <div className="md:col-span-5">
-                <p className="eyebrow mb-4">My Philosophy</p>
+                <p className="eyebrow mb-4">Perspective</p>
                 <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-5">
                   Your research code deserves an upgrade.
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Most scientific analyses live in scripts and spreadsheets that 
+                  Most scientific analyses live in scripts, spreadsheets, and notebooks that
                   only your team knows how to run. That's a great approach for
                   getting started.
                   But the moment you want your model to have a wider audience,
                   software engineering can help you scale.
                   That's where I come in. My expertise lies in bridging the gap between
-                  internal research assets and user-facing software.
-                  My process starts by understanding your existing code and data,
-                  then building durable software around it that will amplify
+                  internal research assets and production-grade software.
+                  My process starts by understanding your existing 
+                  code and data, then building durable software around it that will amplify
                   your research impact.
                 </p>
               </div>
@@ -301,11 +300,11 @@ export default function Home() {
                   },
                   {
                     title: "Built for scientific data",
-                    desc: "Integrate diverse data types (geospatial, tabular, JSON, etc) into modern interfaces that make your science accesible, interactive, and engaging.",
+                    desc: "Integrate diverse data types (tabular, JSON, geospatial, and more) into modern interfaces that brings your research to life.",
                   },
                   {
                     title: "Made for long-term sustainability",
-                    desc: "Clean architecture, documented assumptions, and maintainable code, so the software is build to last beyond the handoff.",
+                    desc: "Clean architecture, maintainable code, and rigorous documentation so the software is built to last well beyond the handoff.",
                   },
                 ].map((item) => (
                   <motion.div
@@ -327,11 +326,11 @@ export default function Home() {
             <div className="max-w-2xl mb-14">
               <p className="eyebrow mb-4">My Services</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                Designed with purpose, built for impact.
+                Purpose-built software for scientific impact.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 I believe science has the potential to solve our world's greatest challenges.<br/>
-                My mission is to build the tools that will get us there.
+                I want to build the tools that will help lead the way.
               </p>
             </div>
             <motion.div
@@ -344,7 +343,7 @@ export default function Home() {
               {[
                 {
                   title: "From research code to deployed web app",
-                  desc: "Migrate Jupyter notebooks, R scripts, and Python codebases into production web applications with proper APIs, authentication, tests, and a codebase your team can maintain after I hand it off.",
+                  desc: "Migrate Jupyter notebooks, R scripts, and Python codebases into production web applications with proper APIs, authentication, tests, and a codebase your team can maintain after handoff.",
                 },
                 {
                   title: "Geospatial analysis platforms",
@@ -355,7 +354,7 @@ export default function Home() {
                   desc: "Web interfaces that let stakeholders explore model outputs, technoeconomic results, and life-cycle assessments visually, without needing to read the underlying code.",
                 },
                 {
-                  title: "Machine learning for science",
+                  title: "Machine learning workflows",
                   desc: "Surrogate models, predictive pipelines, and ML workflows wrapped in software that researchers and analysts can run reliably, not just the developer who built them.",
                 },
                 {
@@ -390,9 +389,9 @@ export default function Home() {
                 A collaboative exchange from start to finish.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Scientific software needs a balance of structure and flexibility to support data updates over time.
-                I work closely with your team to translate your work into software
-                that holds up in production and can be maintained with ease.
+                Scientific software needs a balance of structure and flexibility to support evolution over time.
+                I work closely with your team to translate your work into tools
+                that hold up in production today, while allowing for long-term maintenance and extensibility.
               </p>
             </div>
 
@@ -401,17 +400,17 @@ export default function Home() {
                 {
                   num: "01",
                   title: "Understand your science",
-                  desc: "I do a deep dive into your research, data, code to fully understand your software tooling needs.",
+                  desc: "I dive deep into your existing research assets (code, data, models, etc.) while engaging in dialogue with you to fully understand your needs.",
                 },
                 {
                   num: "02",
                   title: "Define the software goal",
-                  desc: "I map your research artifacts to a prototype with scope, APIs, data flow, and a deployment plan, integrating your input along the way.",
+                  desc: "I help you clarify your software goal, then map scope of work - complete with APIs, data flow, and deployment plan - integrating input from you along the way.",
                 },
                 {
                   num: "03",
                   title: "Build and validate",
-                  desc: "I develop the application with frequent check-ins, opportunites for feedback and validation cycles.",
+                  desc: "I develop the application iteratively with frequent check-ins, opportunites for feedback and beta-testing cycles to ensure the software meets your needs.",
                 },
                 {
                   num: "04",
@@ -436,7 +435,7 @@ export default function Home() {
               <h2 className="font-serif text-3xl md:text-4xl mb-5">Why work with me</h2>
               <p className="text-muted-foreground leading-relaxed">
                 I've spent a decade at the intersection of science and software development, 
-                publishing research and tools across a range of fields from synthetic biology and sustainable agriculture to TEA/LCA, machine learning, and geospatial analysis.
+                publishing research and tools alongside leading experts in sustainable energy, agriculture, and environmental science.
               </p>
             </div>
             <div className="space-y-8">
@@ -447,7 +446,7 @@ export default function Home() {
                 },
                 {
                   title: "Research-to-production fluency",
-                  desc: "Years of turning notebooks, geospatial models, technoeconomic analyses, and ML pipelines into web-deployed applications that get used well beyond the original research team.",
+                  desc: "Years of turning notebooks, geospatial models, technoeconomic analyses, and ML pipelines into web-deployed applications that get used well beyond project completion.",
                 },
                 {
                   title: "Experience working with domain experts",
@@ -505,9 +504,9 @@ export default function Home() {
                   desc: "Database and machine learning tool for predicting properties of biomass-derived molecules and fuel blends — boiling and flash points, melting points, yield sooting index, and heat of combustion — across 10,000+ candidate molecules for sustainable aviation fuel R&D, with linked techno-economic and life-cycle dashboards.",
                 },
                 {
-                  title: "LEAD TEA/LCA Tools",
-                  href: "https://lead.jbei.org",
-                  desc: "Public-facing portfolio for JBEI's Life-cycle, Economics, and Agronomy division — a unified landing page for the TEA and LCA web tools, datasets, and tutorials I help build alongside the LEAD team.",
+                  title: "BioSiting Tool",
+                  href: "https://biositing.jbei.org",
+                  desc: "National geospatial platform for analyzing bioeconomy resources and infrastructure across the U.S. — agricultural and forest residues, waste streams, biorefineries, pipelines, environmental justice indicators, and CO₂ geologic storage potential, with custom buffer-zone queries.",
                 },
                 {
                   title: "Agile LCA",
@@ -515,9 +514,9 @@ export default function Home() {
                   desc: "Streamlined life-cycle assessment tool for rapidly estimating greenhouse gas emissions of products from direct material and energy inputs, with an emissions breakdown dashboard and CSV export.",
                 },
                 {
-                  title: "BioSiting Tool",
-                  href: "https://biositing.jbei.org",
-                  desc: "National geospatial platform for analyzing bioeconomy resources and infrastructure across the U.S. — agricultural and forest residues, waste streams, biorefineries, pipelines, environmental justice indicators, and CO₂ geologic storage potential, with custom buffer-zone queries.",
+                  title: "BioC2G TEA/LCA Tool",
+                  href: "https://lead.jbei.org/tea_lca_tool/",
+                  desc: "Web tool for rapid techno-economic and life-cycle assessment of biofuel synthesis pathways — estimates costs, greenhouse gas emissions, and energy use from user-defined process configurations on JBEI's LEAD platform.",
                 },
               ].map((proj, i) => (
                 <a
@@ -691,17 +690,17 @@ export default function Home() {
             </div>
             <p className="eyebrow mb-4">About Me</p>
             <h2 className="font-serif text-3xl md:text-4xl mb-6">
-              A commitment to science & software
+              A commitment to science & innovation
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              I've spent a decade developing software to help researchers, industry partners,
-              and policymakers get the most out of scientific research. 
-              My work has spanned a range of fields from synthetic biology and
-              sustainable agriculture to TEA/LCA, machine learning, and geospatial analysis.
-              Along the way, I've built a strong track record of published papers and software tools alongside 
-              leading domain experts.
-              I am genuinely curious person and love branching into new research areas where I can apply my
-              development skills to amplify scientific impact.
+              I've spent a decade in scientific research building software tools designed for impact.
+              My work has spanned a range of fields including
+              sustainable energy, agriculture, technoeconomic analysis, and life-cycle assessment.
+              Along the way, I've published numerous papers alongside leading domain experts and learned
+              best practices for building scientific software that not only works, but truly makes a difference. 
+              I love branching into new research areas and exploring how my unique skillset
+              can help advance fields that are foreign to me. I am a lifelong learner, always seeking out new
+              challenges and opportunities for growth.
             </p>
           </div>
         </section>
@@ -721,6 +720,7 @@ export default function Home() {
             <p className="text-muted-foreground leading-relaxed mb-10">
               Email me to get in touch.<br/>
               Free consultations available to discuss project needs and scope.
+              I look forward to hearing from you!
             </p>
 
             {/* TODO: contact form disabled — restore from git history when ready to wire it up */}
