@@ -233,11 +233,11 @@ export default function Home() {
                 Custom software development for high-impact science.<br/>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-                I help data-driven teams build software that advances research. <br/>
-                From scripts, spreadsheets, and notebooks 
-                to fully deployed web apps, my process is designed to set your science apart.
+                I help research teams build leading-edge software tools. <br/>
+                My process can take you from scripts, spreadsheets, and notebooks 
+                to fully deployed web app in weeks, not months.
                 <br/><br/>
-                Let's build the tools that will shape the future of your field.
+                Let's build the software that will elevate your science. 
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
