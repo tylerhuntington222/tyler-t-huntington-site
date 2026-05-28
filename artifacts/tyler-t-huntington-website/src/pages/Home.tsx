@@ -330,7 +330,7 @@ export default function Home() {
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 I believe science has the potential to solve our world's greatest challenges.<br/>
-                I want to build the tools that will help lead the way.
+                I strive to build the tools that will lead the way.
               </p>
             </div>
             <motion.div
