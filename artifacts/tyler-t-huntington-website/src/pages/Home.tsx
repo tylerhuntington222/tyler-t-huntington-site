@@ -41,6 +41,7 @@ import {
 
 const HEADSHOT_SRC = `${import.meta.env.BASE_URL}tyler-huntington-headshot.png`;
 const CONTACT_EMAIL = "tylerthuntington@gmail.com";
+const CONTACT_EMAIL_DISPLAY = "TylerTHuntington@gmail.com";
 const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
   "Project inquiry",
 )}`;
@@ -714,7 +715,7 @@ export default function Home() {
                 className="text-foreground hover:text-secondary transition-colors break-all"
                 data-testid="link-contact-email"
               >
-                {CONTACT_EMAIL}
+                {CONTACT_EMAIL_DISPLAY}
               </a>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-10">

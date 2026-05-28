@@ -14,6 +14,22 @@ export const SCHOLAR_PROFILE_URL =
 /** Publications listed on Google Scholar, sorted by year (newest first). */
 export const publications: Publication[] = [
   {
+    title: "California Bioscape Frontend",
+    authors: "T Huntington",
+    venue: "Zenodo",
+    year: 2026,
+    type: "software",
+    doi: "10.5281/zenodo.19443410",
+  },
+  {
+    title: "CA-BioSiting: Backend Data Platform",
+    authors: "L Setiawan, V Rajpura, N Burggraf, M Gong, P Smith, T Huntington, A Wong",
+    venue: "Zenodo",
+    year: 2026,
+    type: "software",
+    doi: "10.5281/zenodo.19443582",
+  },
+  {
     title:
       "Controlled Environment Agriculture SiteScout (CEA SiteScout) v1.0",
     authors: "J Stokes-Draut, R Negron-Juarez, T Huntington, A Hodson",
