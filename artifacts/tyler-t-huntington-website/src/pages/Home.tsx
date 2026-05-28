@@ -720,6 +720,7 @@ export default function Home() {
             <p className="text-muted-foreground leading-relaxed mb-10">
               Email me to get in touch.<br/>
               Free consultations available to discuss project needs and scope.
+              <br/>
               I look forward to hearing from you!
             </p>
 
