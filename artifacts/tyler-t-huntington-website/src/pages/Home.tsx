@@ -233,9 +233,11 @@ export default function Home() {
                 Custom software development for high-impact science.<br/>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-                I help data-driven teams build software that elevates research.<br/>
+                I help data-driven teams build software to elevate their research. <br/>
                 My process turns scripts, spreadsheets, and notebooks 
-                into fully deployed web apps in weeks, not months. <br/><br/>Let's bring your science into the spotlight.
+                into fully deployed web apps in weeks, not months. 
+                <br/><br/>
+                Let's work together to put your science in the spotlight.
                 
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -277,7 +279,7 @@ export default function Home() {
                   only your team knows how to run. That's a great approach for
                   getting started.
                   But the moment you want your model to have a wider audience,
-                  real software engineering is needed to help you scale.
+                  software engineering can help you scale.
                   That's where I come in. My expertise lies in bridging the gap between
                   internal research assets and user-facing software.
                   My process starts by understanding your existing code and data,
@@ -294,16 +296,16 @@ export default function Home() {
               >
                 {[
                   {
-                    title: "Grounded in your research",
-                    desc: "Turn scripts, spreadsheets, Jupyter notebooks, and other research assets into web apps that collaborators and stakeholders can actually run.",
+                    title: "Grounded in your research assets",
+                    desc: "Transform existing scripts, spreadsheets, notebooks, and data into web apps that can be run by a wider audience beyond your team.",
                   },
                   {
                     title: "Built for scientific data",
-                    desc: "Geospatial data, model outputs, lab samples, and simulation results, packaged into interfaces that make complex science legible and reproducible.",
+                    desc: "Integrate diverse data types (geospatial, tabular, JSON, etc) into modern interfaces that make your science accesible, interactive, and engaging.",
                   },
                   {
                     title: "Made for long-term sustainability",
-                    desc: "Clean architecture, documented assumptions, and maintainable code, so the software is built to last.",
+                    desc: "Clean architecture, documented assumptions, and maintainable code, so the software is build to last beyond the handoff.",
                   },
                 ].map((item) => (
                   <motion.div
@@ -385,10 +387,10 @@ export default function Home() {
             <div className="max-w-2xl mb-16">
               <p className="eyebrow mb-4">My Process</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                Focused around your needs, from start to finish.
+                A collaboative exchange from start to finish.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Scientific software needs a balance of structure and flexibility to support new data and models over time.
+                Scientific software needs a balance of structure and flexibility to support data updates over time.
                 I work closely with your team to translate your work into software
                 that holds up in production and can be maintained with ease.
               </p>
