@@ -330,7 +330,7 @@ export default function Home() {
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 I believe science has the potential to solve our world's greatest challenges.<br/>
-                I strive to build the tools that will lead the way.
+                I aim to build software tools that will lead the way.
               </p>
             </div>
             <motion.div
@@ -473,7 +473,7 @@ export default function Home() {
                 Selected projects
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                A collection of tools I've built over my career in scientific software development.
+                A collection of tools I've built over my career.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-5">
