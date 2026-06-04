@@ -234,12 +234,12 @@ export default function Home() {
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
                 {/* I help research teams build leading-edge software tools.  */}
-                I build software that helps research teams elevate their science.
+                I build software tools for leading-edge research teams.
                 <br/>
-                From scripts, spreadsheets, notebooks,
-                to fully deployed web apps in weeks, not months.
+                From scripts, spreadsheets, and notebooks,
+                to fully deployed web tools in weeks, not months.
                 <br/><br/>
-                Let's build the tools that scale your research impact. 
+                Science deserves better software.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
