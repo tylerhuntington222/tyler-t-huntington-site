@@ -230,7 +230,7 @@ export default function Home() {
             >
               <p className="eyebrow mb-6">What I Do</p>
               <h1 className="font-serif text-[2.75rem] md:text-[4.25rem] leading-[1.05] tracking-tight text-foreground mb-7">
-                Custom software for high-impact science.<br/>
+                Custom software development for high-impact science.<br/>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
                 {/* I help research teams build leading-edge software tools.  */}
