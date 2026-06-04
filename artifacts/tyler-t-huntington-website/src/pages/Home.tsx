@@ -230,14 +230,16 @@ export default function Home() {
             >
               <p className="eyebrow mb-6">What I Do</p>
               <h1 className="font-serif text-[2.75rem] md:text-[4.25rem] leading-[1.05] tracking-tight text-foreground mb-7">
-                Custom software development for high-impact science.<br/>
+                Custom software for high-impact science.<br/>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-                I help research teams build leading-edge software tools. <br/>
-                I can take you from scripts, spreadsheets, and notebooks 
+                {/* I help research teams build leading-edge software tools.  */}
+                I build software that helps research teams elevate their science.
+                <br/>
+                From scripts, spreadsheets, notebooks,
                 to fully deployed web apps in weeks, not months.
                 <br/><br/>
-                Let's build the software that will elevate your science. 
+                Let's build the tools that scale your research impact. 
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
