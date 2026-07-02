@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Run GitHub CLI as tylerhuntington222 without switching the global active account.
+export GH_TOKEN="$(gh auth token --user tylerhuntington222)"
+exec gh "$@"

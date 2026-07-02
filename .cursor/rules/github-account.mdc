@@ -1,0 +1,36 @@
+---
+description: Use tylerhuntington222 for git/gh in this repo without switching global gh auth
+globs:
+alwaysApply: true
+---
+
+This repo belongs to the **tylerhuntington222** GitHub account. Do **not** run `gh auth switch`.
+
+## Git push / pull / fetch
+
+Use the repo remote as configured. It points at the `github-personal` SSH host alias, which authenticates as tylerhuntington222:
+
+```bash
+git push origin main
+```
+
+Do not change `origin` back to HTTPS for this repo.
+
+## GitHub CLI (`gh`)
+
+Use the repo wrapper so only that command runs as tylerhuntington222:
+
+```bash
+./scripts/gh222 pr create ...
+./scripts/gh222 api repos/tylerhuntington222/tyler-t-huntington-site/...
+```
+
+Equivalent one-off form:
+
+```bash
+GH_TOKEN="$(gh auth token --user tylerhuntington222)" gh pr create ...
+```
+
+## Why
+
+Other agents on this machine rely on the global active GitHub account staying **tylerhuntington**. Repo-local SSH remote + per-command `GH_TOKEN` keep account selection scoped to this project only.
