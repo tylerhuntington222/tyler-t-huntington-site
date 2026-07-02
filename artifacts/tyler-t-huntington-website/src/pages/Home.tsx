@@ -332,7 +332,7 @@ export default function Home() {
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 I believe science has the potential to solve our world's greatest challenges.<br/>
-                I aim to build software tools that will lead the way.
+                I aim to build the solution-enabling tools.
               </p>
             </div>
             <motion.div
@@ -388,7 +388,7 @@ export default function Home() {
             <div className="max-w-2xl mb-16">
               <p className="eyebrow mb-4">My Process</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                A collaboative exchange from start to finish.
+                A collaborative exchange from start to finish.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 Scientific software needs a balance of structure and flexibility to support evolution over time.
@@ -412,7 +412,7 @@ export default function Home() {
                 {
                   num: "03",
                   title: "Build and validate",
-                  desc: "I develop the application iteratively with frequent check-ins, opportunites for feedback and beta-testing cycles to ensure the software meets your needs.",
+                  desc: "I develop the application iteratively with frequent check-ins, opportunities for feedback and beta-testing cycles to ensure the software meets your needs.",
                 },
                 {
                   num: "04",
