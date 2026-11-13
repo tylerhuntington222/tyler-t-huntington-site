@@ -1,0 +1,9 @@
+[build]
+  command = "pnpm --filter @workspace/tyler-t-huntington-website run build"
+  publish = "artifacts/tyler-t-huntington-website/dist/public"
+
+# Same SPA fallback Vercel applied in vercel.json. Real files are served first.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
