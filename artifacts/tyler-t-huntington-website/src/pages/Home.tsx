@@ -144,7 +144,7 @@ export default function Home() {
                 Tyler T. Huntington
               </span>
               <span className="block text-xs text-muted-foreground tracking-wide truncate">
-                scientific software developer.
+                Scientific Software Developer
               </span>
             </span>
           </button>
